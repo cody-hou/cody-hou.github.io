@@ -1,5 +1,6 @@
 ---
 title: "Photography"
+layout: splash
 permalink: /photography/
 ---
 
