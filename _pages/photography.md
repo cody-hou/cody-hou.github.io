@@ -1,7 +1,12 @@
 ---
 title: "Photography"
-layout: single
 permalink: /photography/
 ---
 
-# Photography Collections
+## Photography Collections
+
+### North Shore 2021
+
+### North Shore 2020
+
+### Iceland 2019
