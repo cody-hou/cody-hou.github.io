@@ -1,13 +1,10 @@
 ---
 title: "Photography"
-layout: splash
+layout: collection
 permalink: /photography/
+collection: photography
+entries_layout: grid
+classes: wide
 ---
 
-## Photography Collections
-
-### North Shore 2021
-
-### North Shore 2020
-
-### Iceland 2019
+Curated photography portfolio.

@@ -282,3 +282,18 @@ defaults:
     values:
       layout: single
       author_profile: true
+  # _photography
+  - scope:
+      path: ""
+      type: photography
+    values:
+      layout: single
+      author_profile: false
+      share: true
+
+
+# Collections
+collections:
+  photography:
+    output: true
+    permalink: /:collection/:path/
