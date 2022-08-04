@@ -16,7 +16,7 @@ gallery3:
     alt: "Violet"
 gallery4:
   - url: /assets/images/macro/indian-pipe.jpg
-    image_path: assets/images/macro-indian-pipe.jpg
+    image_path: assets/images/macro/indian-pipe.jpg
     alt: "Indian Pipe"
 ---
 
