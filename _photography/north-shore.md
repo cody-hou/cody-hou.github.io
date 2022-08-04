@@ -1,5 +1,7 @@
 ---
 title: "North Shore"
+header:
+  teaser: https://live.staticflickr.com/65535/50203351166_75c7295700_b_d.jpg 
 gallery1:
   - url: https://www.flickr.com/photos/187964555@N02/50203351166/ 
     image_path: https://live.staticflickr.com/65535/50203351166_75c7295700_b_d.jpg
