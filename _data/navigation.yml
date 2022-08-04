@@ -4,6 +4,8 @@ main:
     url: /research/
   - title: "Photography"
     url: /photography/
+  - title: "Archive"
+    url: /year-archive/
   - title: "About"
     url: /about/
   # - title: "Quick-Start Guide"
