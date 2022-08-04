@@ -24,7 +24,7 @@ gallery5:
     alt: "Snaefellsjokull"
 ---
 
-Iceland.
+Despite the harsh weather, Iceland harbors life amidst picturesque waterfalls, mountains, and glaciers—truly a photographer's dream. This was my first genuine foray into landscape photography, and this trip inspired me to dive deeper into long exposures.
 
 {% include gallery id="gallery1" caption="Roaring torrents of water create double rainbows at Skógafoss. D750, 16-35 f/4G @ 16mm, f/6.3, ISO 200, 1/200s." %}
 

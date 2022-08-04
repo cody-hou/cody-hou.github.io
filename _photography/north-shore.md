@@ -24,7 +24,7 @@ gallery5:
     alt: "Pebble Beach"
 ---
 
-Minnesota's North Shore along Lake Superior is a rugged coastline filled with ancient forests, weathered mountains, and serene waterfalls.
+Minnesota's North Shore along Lake Superior is a rugged coastline filled with ancient forests, weathered mountains, and serene waterfalls. Many of the long exposures below were taken using neutral density filters.
 
 {% include gallery id="gallery1" caption="Sunrise along a rocky inlet on Lake Superior. D750, 16-35 f/4G @ 16mm, f/8, ISO 100, 26s." %}
 
