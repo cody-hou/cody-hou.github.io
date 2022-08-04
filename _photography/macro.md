@@ -13,11 +13,11 @@ gallery2:
 gallery3:
   - url: /assets/images/macro/violet.jpg
     image_path: assets/images/macro/violet.jpg
-    alt: "violet"
+    alt: "Violet"
 gallery4:
   - url: /assets/images/macro/indian-pipe.jpg
     image_path: assets/images/macro-indian-pipe.jpg
-    alt: "indian-pipe"
+    alt: "Indian Pipe"
 ---
 
 Macrophotography was my first field of passion within photography. As a kid I loved getting up close to objects and seeing small details.
@@ -28,4 +28,4 @@ Macrophotography was my first field of passion within photography. As a kid I lo
 
 {% include gallery id="gallery3" caption="My COVID-19 quarantine project: a flowering violet. Focus stack of 23 images, D90, 105 f/2.8G, f/3.5, ISO 200, 1/400s." %}
 
-{% include gallery id="gallery4" caption="_Monotropa uniflora_, also known colloquially as the "Indian pipe," at Sugarloaf Cove. D750, 105 f/2.8G, f/3.2, ISO 500, 1/125s." %}
+{% include gallery id="gallery4" caption='_Monotropa uniflora_, also known colloquially as the "Indian pipe," at Sugarloaf Cove. D750, 105 f/2.8G, f/3.2, ISO 500, 1/125s.' %}
