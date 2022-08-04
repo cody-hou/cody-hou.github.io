@@ -7,4 +7,4 @@ entries_layout: grid
 classes: wide
 ---
 
-Curated photography portfolio.
+Curated galleries of my photos. Specific gear descriptions and location info are written within each gallery. 
