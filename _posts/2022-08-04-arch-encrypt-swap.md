@@ -140,8 +140,8 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     1. Unmount our `snapshots` subvolume mounted at `/.snapshots` and delete the `/.snapshots` folder. 
 
         ```shell
-        # sudo umount /.snapshots
-        # sudo rm -r /.snapshots
+        sudo umount /.snapshots
+        sudo rm -r /.snapshots
         ```
     2. Create our `snapper` config and let `snapper` do its weird thing. 
     
