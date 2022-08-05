@@ -18,9 +18,9 @@
       </div>
     {% endif %}
     {% if include.type == "list" and teaser %}
-    <div class="thumbnail-container">
-      <img src="{{ teaser | relative_url }}" alt="">
-    </div>
+      <div class="archive__item-teaser">
+        <img src="{{ teaser | relative_url }}" alt="">
+      </div>
     {% endif %}
     <h2 class="archive__item-title no_toc" itemprop="headline">
       {% if post.link %}
