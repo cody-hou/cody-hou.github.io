@@ -1,6 +1,7 @@
 ---
 title: "Setting up Arch Linux with BTRFS, Encryption, and Swap"
 date: 2022-08-04
+modified: 2022-08-05
 tags:
   - Arch Linux
 ---
@@ -89,7 +90,6 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     ```
 
 10. Continue with the install guide by generating your `fstab`, `arch-chroot`ing into `/mnt`, and setting time zone, system locale, hostname, and root password.
-
 11. For the boot manager, I use `grub` because there are some packages that play nicely with restoring snapshots from the GRUB interface that we will see later.
 
     ```shell
@@ -129,8 +129,113 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     ```
 
 18. At this stage you can continue with the official install guide to enable networking, add a user, and enable `sudo`.
-
 19. Reboot the system and remove the Arch Linux install USB. You should be prompted to enter a password for your encrypted partition before logging in! If not, something in the process didn't go quite right (e.g. UUID wasn't typed correctly). With the install USB, you can remount all the partitions and `arch-chroot` to fix this.
+20. We're now going to set up `snapper`.
+
+    ```shell
+    sudo pacman -S snapper
+    ```
+
+21. When we create a snapshot configuration with `snapper`, it will also create a subvolume and folder called `/.snapshots`, even though we created the `snapshots` subvolume mounted on `/.snapshots` earlier. To remedy this we will: 
+    1. Unmount our `snapshots` subvolume mounted at `/.snapshots` and delete the `/.snapshots` folder. 
+
+        ```shell
+        # sudo umount /.snapshots
+        # sudo rm -r /.snapshots
+        ```
+    2. Create our `snapper` config and let `snapper` do its weird thing. 
+    
+        ```shell
+        sudo snapper -c root create-config /
+        ```
+
+    3. Confirm that `snapper` did its weird thing and delete the newly created subvolume and folder.
+
+        ```shell
+        sudo btrfs subvolume list /
+        sudo btrfs subvolume delete /.snapshots
+        ```
+
+    4. Recreate the folder and remount it to our `snapshots` subvolume.
+
+        ```shell
+        sudo mkdir /.snapshots
+        sudo mount -a
+        ```
+
+22. Let's give read, write and execute access from our snapshots (so we can access them).
+
+    ```shell
+    sudo chmod 750 /.snapshots
+    ```
+
+23. Edit `snapper` config at `/etc/snapper/configs/root`, add ALLOW_USERS=”[your username here, replace the brackets too]” and change frequency to that [listed on the `snapper` wiki page](https://wiki.archlinux.org/title/snapper#Set_snapshot_limits). 
+24. Enable the `snapper` services. If on an SSD, enable TRIM.
+
+    ```shell
+    sudo systemctl enable --now snapper-timeline.timer
+    sudo systemctl enable --now snapper-cleanup.timer
+    sudo systemctl enable fstrim.timer
+    ```
+
+25. Home stretch! Next I'll install `yay`, an AUR helper. It helps us install and manage packages from the AUR.
+
+    ```shell
+    git clone https://aur.archlinux.org/yay
+    cd yay
+    makepkg -si PKGBUILD
+    ```
+
+26. Install `snap-pac-grub` and `rsync`. `snap-pac-grub` takes a system snapshot after every single install with `pacman` (so we can revert if an upgrade breaks something) and then makes these snapshots accessible and bootable from GRUB. Since our boot partition is not being snapshotted (only root), I'll use `rsync` to copy the files of `/boot` during every Linux kernel upgrade. 
+
+    ```shell
+    yay -S snap-pac-grub rsync
+    ```
+
+27. Edit `/etc/mkinitcpio.conf` and add `grub-btrfs-overlayfs` to the end of `HOOKS`, and then regenerate your `initramfs`. We did something like this earlier. This step enables booting from our snapshots from GRUB.
+
+    ```shell
+    sudo mkinitcpio -P
+    ```
+
+28. Sync `/boot` to `/.bootbackup` because `snapper` cannot backup `/boot`. 
+
+    ```shell
+    sudo rsync -a --delete /boot /.bootbackup
+    ```
+29. Create the folder `/etc/pacman.d/hooks` and in it, create a hook which will sync `/boot` whenver there is a kernel update.
+
+    ```shell
+    sudo mkdir /etc/pacman.d/hooks
+    sudo vim /etc/pacman.d/hooks/50-bootbackup.hook
+    ```
+
+    ```
+    [Trigger]
+    Operation = Upgrade
+    Operation = Install
+    Operation = Remove
+    Type = Path
+    Target = usr/lib/modules/*/vmlinuz
+    
+    [Action]
+    Depends = rsync
+    Description = Backing up /boot...
+    When = PostTransaction
+    Exec = /usr/bin/rsync -a --delete /boot /.bootbackup
+    ```
+
+30. Reboot and make an image for rollback to this base system in case something bad goes wrong.
+
+    ```shell
+    sudo snapper -c root create --description “Clean BTRFS install with Snapper”
+    ```
+
+31. Finished! Phew, that was a handful. But this establishes an excellent base system from which to work off of. You can install your favorite desktop environment/window manager and programs. I use KDE.
+
+    ```shell
+    sudo pacman -S xorg xorg-xinit xf86-input-libinput xf86-input-wacom mesa plasma-meta sddm konsole xdg-user-dirs xdg-utils tlp tlp-rdw reflector firefox dolphin ark kate kio-gdrive okular elisa vlc gwenview gimp krita kcalc spectacle kcharselect ksystemlog packagekit-qt5 kvantum noto-fonts noto-fonts-cjk noto-fonts-emoji fcitx5-mozc fcitx5-qt fcitx5-gtk fcitx5-configtool bitwarden libreoffice-still hunspell hunspell-en_us print-manager skanpage cups ghostscript gsfonts cups-pdf hplip bluez bluez-utils pulseaudio-bluetooth neofetch kdeconnect
+    ```
 
 ## Resources
 
