@@ -6,7 +6,7 @@ tags:
   - Arch Linux
 header:
   image: /assets/images/headers/2022-08-04-arch-encrypt-swap-header.png
-  teaser: /assets/images/headers/2022-08-04-arch-encrypt-swap-header.png
+  teaser: /assets/images/headers/2022-08-04-arch-encrypt-swap-header-teaser.png
 ---
 
 This blog post will demonstrate how I set up a new Arch Linux install with BTRFS, an encrypted filesystem with `dm-crypt`, and encrypted swap partition via a swap file. This post assumes some familiarity with the command line, Linux distros, and terminology around installing a Linux distro.
