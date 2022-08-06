@@ -16,12 +16,12 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "cody-hou.github.io"
+title                    : "www.codyhou.com"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Cody Hou"
 description              : "Blog and portfolio."
-url                      : "https://cody-hou.github.io"
+url                      : "https://www.codyhou.com/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "cody-hou/cody-hou.github.io" 
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -73,7 +73,7 @@ google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
 # SEO Related
-google_site_verification : "JlO9srmZsaUlLzpLGb0nXb4Oh7v63JreoWBkrhUfKvA"
+google_site_verification : "6fvQY3c01wQ_WYfJ2g-oZ_zcnEDFKSDj_POSzB9e264"
 bing_site_verification   :
 naver_site_verification  :
 yandex_site_verification :
