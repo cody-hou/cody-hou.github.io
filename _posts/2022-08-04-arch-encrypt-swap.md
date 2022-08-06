@@ -1,9 +1,10 @@
 ---
 title: "Setting up Arch Linux with BTRFS, Encryption, and Swap"
 date: 2022-08-04
-modified: 2022-08-05T13:50:00-05:00
+last_modified_at: 2022-08-05
 tags:
   - Arch Linux
+  - Guides
 header:
   image: /assets/images/headers/2022-08-04-arch-encrypt-swap-header.png
   teaser: /assets/images/headers/2022-08-04-arch-encrypt-swap-header.png

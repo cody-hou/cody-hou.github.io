@@ -37,8 +37,9 @@
   (warning, $warning-color),
   (danger, $danger-color),
   (info, $info-color),
-  (facebook, $facebook-color),
+  (reddit, $reddit-color),
   (twitter, $twitter-color),
+  (facebook, $facebook-color),
   (linkedin, $linkedin-color);
 
   @each $buttoncolor, $color in $buttoncolors {

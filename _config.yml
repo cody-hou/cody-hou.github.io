@@ -20,7 +20,7 @@ title                    : "cody-hou.github.io"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Cody Hou"
-description              : "Cody's portfolio and blog."
+description              : "Blog and portfolio."
 url                      : "https://cody-hou.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "cody-hou/cody-hou.github.io" 
@@ -106,7 +106,7 @@ analytics:
 author:
   name             : "Cody Hou"
   avatar           : "/assets/images/bio-photo.jpg"
-  bio              : "MS2 @ University of Minnesota. Sarnoff Fellow @ Broad Institute. Photographer, hiker, computer enthusiast."
+  bio              : "MS2 @ University of Minnesota. Sarnoff Fellow @ Broad Institute. Photographer, road cyclist, computer enthusiast."
   location         : "Cambridge, Massachusetts"
   email            :
   links:
@@ -215,6 +215,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jemoji
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -271,6 +272,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+      show_date: true
       read_time: true
       comments: false # true
       share: true
