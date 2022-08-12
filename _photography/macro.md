@@ -1,22 +1,22 @@
 ---
 title: "Macrophotography"
 header:
-  teaser: assets/images/macro/honeybee.jpg
+  teaser: /assets/images/macro/honeybee.jpg
 gallery1:
   - url: /assets/images/macro/dragonfly.jpg
-    image_path: assets/images/macro/dragonfly.jpg
-    alt: "Dragonfly"
+    image_path: /assets/images/macro/dragonfly.jpg
+    alt: "Dragonfly on hydrangeas"
 gallery2:
   - url: /assets/images/macro/honeybee.jpg
-    image_path: assets/images/macro/honeybee.jpg
-    alt: "Honeybee"
+    image_path: /assets/images/macro/honeybee.jpg
+    alt: "Honeybee on flower"
 gallery3:
   - url: /assets/images/macro/violet.jpg
-    image_path: assets/images/macro/violet.jpg
-    alt: "Violet"
+    image_path: /assets/images/macro/violet.jpg
+    alt: "Detailed violet"
 gallery4:
   - url: /assets/images/macro/indian-pipe.jpg
-    image_path: assets/images/macro/indian-pipe.jpg
+    image_path: /assets/images/macro/indian-pipe.jpg
     alt: "Indian Pipe"
 ---
 

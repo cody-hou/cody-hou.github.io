@@ -1,27 +1,27 @@
 ---
 title: "Iceland"
 header:
-  teaser: assets/images/iceland/skogafoss.jpg
+  teaser: /assets/images/iceland/skogafoss.jpg
 gallery1:
   - url: /assets/images/iceland/skogafoss.jpg
-    image_path: assets/images/iceland/skogafoss.jpg
-    alt: "Skogafoss"
+    image_path: /assets/images/iceland/skogafoss.jpg
+    alt: "Skogafoss waterfall"
 gallery2:
   - url: /assets/images/iceland/dynjandi.jpg
-    image_path: assets/images/iceland/dynjandi.jpg
-    alt: "Dynjandi"
+    image_path: /assets/images/iceland/dynjandi.jpg
+    alt: "Dynjandi waterfall"
 gallery3:
   - url: /assets/images/iceland/jokulsarlon.jpg
-    image_path: assets/images/iceland/jokulsarlon.jpg
-    alt: "Jokulsarlon"
+    image_path: /assets/images/iceland/jokulsarlon.jpg
+    alt: "Bird at Jokulsarlon"
 gallery4:
   - url: /assets/images/iceland/kirkjufell.jpg
-    image_path: assets/images/iceland/kirkjufell.jpg
-    alt: "Kirkjufell"
+    image_path: /assets/images/iceland/kirkjufell.jpg
+    alt: "Reflection of Kirkjufell"
 gallery5:
   - url: /assets/images/iceland/snaefellsjokull.jpg
-    image_path: assets/images/iceland/snaefellsjokull.jpg
-    alt: "Snaefellsjokull"
+    image_path: /assets/images/iceland/snaefellsjokull.jpg
+    alt: "Profile of Snaefellsjokull"
 ---
 
 Despite the harsh weather, Iceland harbors life amidst picturesque waterfalls, mountains, and glaciers—truly a photographer's dream. This was my first genuine foray into landscape photography, and this trip inspired me to dive deeper into long exposures.

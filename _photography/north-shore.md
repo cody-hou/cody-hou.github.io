@@ -1,39 +1,39 @@
 ---
 title: "North Shore"
 header:
-  teaser: assets/images/north-shore/cascade-river.jpg
+  teaser: /assets/images/north-shore/cascade-river.jpg
 gallery1:
   - url: /assets/images/north-shore/sunrise.jpg
-    image_path: assets/images/north-shore/sunrise.jpg
-    alt: "Sunrise"
+    image_path: /assets/images/north-shore/sunrise.jpg
+    alt: "Sunrise on Lake Superior"
 gallery2:
   - url: /assets/images/north-shore/brule-falls.jpg
-    image_path: assets/images/north-shore/brule-falls.jpg
+    image_path: /assets/images/north-shore/brule-falls.jpg
     alt: "Brule Falls"
 gallery3:
   - url: /assets/images/north-shore/oberg-lake.jpg
-    image_path: assets/images/north-shore/oberg-lake.jpg
+    image_path: /assets/images/north-shore/oberg-lake.jpg
     alt: "Oberg Lakes"
 gallery4:
   - url: /assets/images/north-shore/lake-ice.jpg
-    image_path: assets/images/north-shore/lake-ice.jpg
-    alt: "Lake Ice"
+    image_path: /assets/images/north-shore/lake-ice.jpg
+    alt: "Lake ice"
 gallery5:
   - url: /assets/images/north-shore/cascade-river.jpg
-    image_path: assets/images/north-shore/cascade-river.jpg
+    image_path: /assets/images/north-shore/cascade-river.jpg
     alt: "Cascade River"
 gallery6:
   - url: /assets/images/north-shore/shovel-point.jpg
-    image_path: assets/images/north-shore/shovel-point.jpg
+    image_path: /assets/images/north-shore/shovel-point.jpg
     alt: "Shovel Point"
 gallery7:
   - url: /assets/images/north-shore/sugarloaf-cove.jpg
-    image_path: assets/images/north-shore/sugarloaf-cove.jpg
+    image_path: /assets/images/north-shore/sugarloaf-cove.jpg
     alt: "Sugarloaf Cove"
 gallery8:
   - url: /assets/images/north-shore/pebble-beach.jpg
-    image_path: assets/images/north-shore/pebble-beach.jpg
-    alt: "Pebble Beach"
+    image_path: /assets/images/north-shore/pebble-beach.jpg
+    alt: "Milky Way at Pebble Beach"
 ---
 
 Minnesota's North Shore along Lake Superior is a rugged coastline filled with ancient forests, weathered mountains, and serene waterfalls. Many of the long exposures below were taken using neutral density filters.
