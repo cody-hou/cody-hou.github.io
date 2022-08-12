@@ -3,6 +3,7 @@ title: "One Decade of Minecraft: a Reflection"
 date: 2022-08-12
 last_modified_at: 2022-08-12
 tags:
+  - Gaming
   - Minecraft
 header:
   image: /assets/images/headers/2022-08-12-decade-minecraft-header.png
