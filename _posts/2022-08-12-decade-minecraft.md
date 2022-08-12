@@ -15,22 +15,14 @@ gallery:
     title: "Pokémon pixel art"
   - url: /assets/images/posts/2022-08-12-decade-minecraft-3.png
     image_path: /assets/images/posts/2022-08-12-decade-minecraft-3.png
-    alt: "Saturn V rocket"
-    title: "Underside of a Saturn V rocket in an underground launch silo"
-  - url: /assets/images/posts/2022-08-12-decade-minecraft-4.png
-    image_path: /assets/images/posts/2022-08-12-decade-minecraft-4.png
-    alt: "Fantasy-style windmill"
-    title: "Fantasy-style windmill"
-  - url: /assets/images/posts/2022-08-12-decade-minecraft-5.png
-    image_path: /assets/images/posts/2022-08-12-decade-minecraft-5.png
     alt: "East Asian-style temple"
     title: "East Asian-style temple floating off the ground"
-  - url: /assets/images/posts/2022-08-12-decade-minecraft-6.png
-    image_path: /assets/images/posts/2022-08-12-decade-minecraft-6.png
+  - url: /assets/images/posts/2022-08-12-decade-minecraft-4.png
+    image_path: /assets/images/posts/2022-08-12-decade-minecraft-4.png
     alt: "Japanese-style temple"
     title: "Japanese-style temple in a pine grove"
-  - url: /assets/images/posts/2022-08-12-decade-minecraft-7.png
-    image_path: /assets/images/posts/2022-08-12-decade-minecraft-7.png
+  - url: /assets/images/posts/2022-08-12-decade-minecraft-5.png
+    image_path: /assets/images/posts/2022-08-12-decade-minecraft-5.png
     alt: "Statues of anime figures"
     title: "Statues of Miyuki (left) and Kaguya (right) from Kaguya-sama: Love Is War"
 ---
@@ -57,7 +49,7 @@ When I hosted a Minecraft server, I was introduced to a lot of basic networking 
 
 Fast forward to 2021 and Minecraft was _still_ giving me new experiences. My desire to host a server remotely without paying for it led me to [this tutorial](https://blogs.oracle.com/developers/post/how-to-setup-and-run-a-free-minecraft-server-in-the-cloud) by Oracle Cloud. I delved into SSH, CentOS and Ubuntu server, firewalls, and much more. And in a world fragmented by COVID-19, some of my most memorable moments of 2021 were evenings spent messing around in creative mode with friends.
 
-{% include gallery layout="third" caption="Screenshots from creative worlds with friends" %}
+{% include gallery layout="half" caption="Screenshots from creative worlds with friends" %}
 
 While I still play Minecraft just like I did 11 years ago—getting jump scared by creepers, avoiding caves, and digging holes to hide in on the first night—I'm confident that Minecraft was a positive and substantial influence on my personal development and character, and helped create who I am today.
 
