@@ -8,9 +8,9 @@ Hi! I'm Cody, a second year medical student at the University of Minnesota. I'm 
 
 In my free time I enjoy landscape photography, road cycling, Japanese variety shows, and messing around with computers. My current fixes are:
 
-* Hiking New England as much as I can to see all the good views
-* Night sky/Milky Way photography
-* Blogging with Jekyll and GitHub Pages
-* Baking the perfect banana bread
-* Replaying Minecraft and Skyrim
-* Attaining proficiency in using Vim
+* 🥾 Hiking New England as much as I can to see all the good views
+* 📝 Blogging with Jekyll and GitHub Pages
+* 💻 Mastering and customizing Vim
+* 🆕🎮 Stardew Valley
+* 🆕⛩️ Rewatching anime
+* 🆕⌨️ Custom mechanical keyboards (just bought a bunch of parts and will post when I get it built!)
