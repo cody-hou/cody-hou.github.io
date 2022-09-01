@@ -1,7 +1,7 @@
 ---
 title: "Exploring Newburyport and Plum Island"
 date: 2022-08-30
-last_modified_at: 2022-08-30
+last_modified_at: 2022-08-31
 tags:
   - New England
   - Travel
@@ -18,7 +18,7 @@ First up was a morning kayak trip. The outfitter we chose, [Plum Island Kayak](h
 
 {% include figure image_path="/assets/images/posts/2022-08-30-newburyport-travel-log-1.jpg" alt="Merrimack River bridge" caption="The trees on the riverbanks of the Merrimack River, along with this rustic bridge, were really quite pretty." %}
 
-After kayaking we hit up Newburyport for lunch. While there are quite a few pricy options, a quick Google search led us to [Loretta](https://www.lorettarestaurant.com/index.php). The air-conditioned restaurant was a welcome respite from the summer heat, and the lunch menu was quite delicious and very well-priced (our group ordered the Seared Ahi Tuna, Hot Pastrami, Croque Monsieur, and Loretta Burger, and we all liked them). Their clam chowder was also very good. For dessert we hit up [Figtree Kitchen](https://www.figtreekitchen.com/). We tried their Apple Fig Wee Tart and a couple of scones. They're apparently well-known for their croissants, so I'll have to give those a try next time. 
+After kayaking we hit up Newburyport for lunch. While there are quite a few pricy options, a quick Google search led us to [Loretta](https://www.lorettarestaurant.com/index.php). The air-conditioned restaurant was a welcome respite from the summer heat, and the lunch menu was quite delicious and very well-priced (our group ordered the Seared Ahi Tuna, Hot Pastrami, Croque Monsieur, and Loretta Burger, and we all liked them). Their clam chowder was also very good. For dessert we hit up [Figtree Kitchen](https://www.figtreekitchen.com/). We tried their Apple Fig Wee Tart, a chocolate croissant, and a couple of scones and had a relaxing dessert break. 
 
 The brick buildings along State Street are nicely preserved and have the characteristic New England look. There's also a small town square where State Street meets Merrimac Street which had a lot of fun booths. We continued to the waterfront and looped around to the [Oldies Marketplace](http://www.oldies-ma.com/). There are actually a ton of great finds on antiques and used items which are reasonably priced, and the shop is really big.
 
