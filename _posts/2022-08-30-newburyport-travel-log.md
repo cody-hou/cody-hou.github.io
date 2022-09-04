@@ -22,7 +22,7 @@ After kayaking we hit up Newburyport for lunch. While there are quite a few pric
 
 The brick buildings along State Street are nicely preserved and have the characteristic New England look. There's also a small town square where State Street meets Merrimac Street which had a lot of fun booths. We continued to the waterfront and looped around to the [Oldies Marketplace](http://www.oldies-ma.com/). There are actually a ton of great finds on antiques and used items which are reasonably priced, and the shop is really big.
 
-{% include figure image_path="/assets/images/posts/2022-08-30-newburyport-travel-log-2.jpg" alt="Newburyport Waterfront" caption="The boardwalk along the waterfront is pleasant." %}
+{% include figure image_path="/assets/images/posts/2022-08-30-newburyport-travel-log-2.jpg" alt="Newburyport waterfront" caption="The boardwalk along the waterfront is pleasant." %}
 
 ## Plum Island
 
