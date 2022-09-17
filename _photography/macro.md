@@ -1,14 +1,14 @@
 ---
 title: "Macrophotography"
 header:
-  teaser: /assets/images/macro/honeybee.jpg
+  teaser: /assets/images/macro/bumblebee-thumb.jpg
 gallery1:
   - url: /assets/images/macro/dragonfly.jpg
     image_path: /assets/images/macro/dragonfly.jpg
     alt: "Dragonfly on hydrangeas"
 gallery2:
-  - url: /assets/images/macro/honeybee.jpg
-    image_path: /assets/images/macro/honeybee.jpg
+  - url: /assets/images/macro/bumblebee.jpg
+    image_path: /assets/images/macro/bumblebee.jpg
     alt: "Honeybee on flower"
 gallery3:
   - url: /assets/images/macro/violet.jpg
