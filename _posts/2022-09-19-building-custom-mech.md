@@ -24,10 +24,10 @@ My reasons for building a custom mechanical keyboard (or rather, how I convinced
 After doing some quick searches on YouTube, it was easy to just order a setup that looked or sounded cool; however, I came up with the following checklist of personal wants for my keyboard.
 
 * Form factor: I don't use the number pad often at work, but I do use the function keys frequently for adjusting brightness/volume on my Macbook Pro, as well as the delete, home/end, and page up/down keys while editing manuscripts. Based on this, a 75% form factor board was best for me.
-* I knew that I type best on tactile switches, but also needed them to be quiet (most tactile switches are loud and noisy) as to not distract my coworkers. 
-* For whatever reason I wanted a knob on my keyboard since that's the new cool keyboard fad.
-* I wanted something in stock (which isn't the case for a lot of keyboard components).
-* I wanted the keyboard to match aesthetically. 
+* Switches: I knew that I type best on tactile switches, but also needed them to be quiet (most tactile switches are loud and noisy) as to not distract my coworkers. 
+* Aesthetics: I wanted the keyboard to match aesthetically. 
+* Features: For whatever reason I wanted a rotary knob on my keyboard since that's the new cool keyboard fad.
+* Availability: I wanted something in stock (which isn't the case for a lot of keyboard components).
 
 I eventually opted for the following components for a silent office keyboard build (here is a good [overview on the anatomy of a keyboard](https://www.youtube.com/watch?v=1NpNygIrnaQ)):
 
