@@ -11,6 +11,7 @@ In my free time I enjoy landscape photography, road cycling, Japanese variety sh
 * 🥾 Hiking New England as much as I can to see all the good views
 * 📝 Blogging with Jekyll and GitHub Pages
 * 💻 Mastering and customizing Vim
-* 🆕🎮 Stardew Valley
-* 🆕⛩️ Rewatching anime
-* 🆕⌨️ Custom mechanical keyboards (just bought a bunch of parts and will post when I get it built!)
+* 🎮 Stardew Valley
+* ⛩️ Rewatching anime
+* ⌨️ Custom mechanical keyboards
+* 🆕💬 Fansubbing Gaki no Tsukai ya Arahende
