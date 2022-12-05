@@ -1,7 +1,7 @@
 ---
 title: "Daily Driving Vim as a Text Editor for Biomedical Research"
 date: 2022-12-04
-last_modified_at: 2022-12-04
+last_modified_at: 2022-12-05
 tags:
   - Guides
   - Research
@@ -65,12 +65,16 @@ set cursorline
 set wrap
 " Wrap long lines at a character in 'breakat' rather than at the last character that fits on the screen
 set linebreak
+" If in Insert, Replace or Visual mode put a message on the last line
+set noshowmode
 " Show (partial) command in the last line of the screen
 set showcmd 
 " When a bracket is inserted, briefly jump to the matching one
 set showmatch
 " The value of this option specifies when the line with tab page labels will be displayed:
 set showtabline=2
+" Show autocomplete options when typing Vim commands
+set wildmenu
 
 " Editing
 " Influences the working of <BS>, <Del>, CTRL-W and CTRL-U in Insert mode
