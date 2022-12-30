@@ -106,16 +106,10 @@ analytics:
 author:
   name             : "Cody Hou"
   avatar           : "/assets/images/bio-photo.jpg"
-  bio              : "I'm a med student who likes to blog about my hobbies, travel, and tech"
+  bio              : "I'm a med student blogging about my hobbies, travel, and tech"
   location         : "Cambridge, Massachusetts"
   email            :
   links:
-    - label: "CV"
-      icon: "fas fa-fw fa-file-pdf"
-      url: "/assets/files/CV.pdf"
-    - label: "Flickr"
-      icon: "fas fa-fw fa-camera"
-      url: "https://www.flickr.com/photos/187964555@N02/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/cody-hou"
@@ -126,9 +120,6 @@ author:
 # Site Footer
 footer:
   links:
-    - label: "Flickr"
-      icon: "fas fa-fw fa-camera"
-      url: "https://www.flickr.com/photos/187964555@N02/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/cody-hou"
