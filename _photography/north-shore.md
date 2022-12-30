@@ -38,10 +38,6 @@ gallery9:
   - url: /assets/images/north-shore/sugarloaf-cove.jpg
     image_path: /assets/images/north-shore/sugarloaf-cove.jpg
     alt: "Sugarloaf Cove"
-gallery10:
-  - url: /assets/images/north-shore/pebble-beach.jpg
-    image_path: /assets/images/north-shore/pebble-beach.jpg
-    alt: "Milky Way at Pebble Beach"
 ---
 
 Minnesota's North Shore along Lake Superior is a rugged coastline filled with ancient forests, weathered mountains, and serene waterfalls. Many of the long exposures below were taken using neutral density filters.
@@ -64,4 +60,3 @@ Minnesota's North Shore along Lake Superior is a rugged coastline filled with an
 
 {% include gallery id="gallery9" caption="A long exposure made for streaking clouds and glassy water during blue hour at Sugarloaf Cove. D750, 16-35 f/4G @ 20mm, f/11, ISO 100, 210s." %}
 
-{% include gallery id="gallery10" caption="The Milky Way lights the sky above Ellingson Island from Pebble Beach at Split Rock State Park. Panorama of 7 photos, D750, 20mm f/1.8G, f/1.8, ISO 3200, 13s." %}
