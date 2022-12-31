@@ -10,7 +10,7 @@ header:
   teaser: /assets/images/headers/2022-12-26-fall-white-mountains-1-header.jpg
 ---
 
-New England is renowned for its fall colors. Despite reports that the drought would affect this year's foliage, we took our chances to travel to the White Mountains in early October.
+New England is renowned for its fall colors. Despite reports that the drought would affect this year's foliage, we took our chances to travel to the White Mountains of New Hampshire in early October.
 
 ## Franconia Notch
 
