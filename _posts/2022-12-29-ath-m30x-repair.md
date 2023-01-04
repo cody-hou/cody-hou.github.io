@@ -16,7 +16,7 @@ Although not the greatest sounding pair of headphones in the world (I now rely o
 I purchased the following items for my repair. With the education discount on B&H, everything came to under $30, much less than buying a equivalent- or better-sounding replacement.
 
 * [Neutrik 3.5 mm Right-Angle Plug (NTP3RC-B)](https://www.neutrik.com/en/neutrik/products/plugs-jacks/plugs/3-5-mm-right-angle-stereo-plug): a right angle plug to prevent the repaired cable from developing the same wire strain; this plug also has holes for the left and right channels, which is much easier to solder with than the [straight plug version](https://www.rean-connectors.com/en/product/nys231-1) that Neutrik's sister brand Rean produces
-* [Auray Sheepskin Leather Earpads for Audio Technica M-Series (EP-ATHM50-L)](<https://www.aurayaudio.com/product/8112/Auray-EP_ATHM50_L-Genuine-Sheepskin-Leather-Ear-Pads-for-Audio_Technica-M_Series-Headphones-(Pair)>): a set of earpads that should be more comfortable than the originals while keeping the original profile (changes in the thickness can affect bass)
+* [Auray Sheepskin Leather Earpads for Audio Technica M-Series (EP-ATHM50-L)](https://www.aurayaudio.com/product/8112/Auray-EP_ATHM50_L-Genuine-Sheepskin-Leather-Ear-Pads-for-Audio_Technica-M_Series-Headphones-(Pair)): a set of earpads that should be more comfortable than the originals while keeping the original profile (changes in the thickness can affect bass)
 
 Proceed at your own risk! This procedure will void your product's warranty.
 {: .notice--warning}

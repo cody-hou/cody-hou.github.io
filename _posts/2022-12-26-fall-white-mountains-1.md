@@ -1,7 +1,7 @@
 ---
 title: "Fall in the White Mountains, Part 1"
 date: 2022-12-26
-last_modified_at: 2022-12-26
+last_modified_at: 2023-01-03
 tags:
   - New England
   - Travel
@@ -43,3 +43,5 @@ We managed to catch sunset over Rocky Gorge, where my girlfriend took this fanta
 ## Lodging
 
 For the next couple of days, we booked at [White Mountain Motel and Cottages](https://www.whitemountainmotel.com/) for just a little over $100 a night. I'd highly recommend a stay here; the accomodation is clean, quiet, and well-priced, and has amenities like a small fridge and microwave. There are also plenty of outlets and reasonably fast WiFi. 
+
+You can see a Google My Maps of the locations listed in this post series [here](https://www.google.com/maps/d/edit?mid=1UlaC_hf7BZ2H2eEbWm-MLHhALCY-gM8&usp=share_link).

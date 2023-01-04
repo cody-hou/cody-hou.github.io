@@ -1,7 +1,7 @@
 ---
 title: "Fall in the White Mountains, Part 2"
 date: 2022-12-30
-last_modified_at: 2022-12-30
+last_modified_at: 2023-01-03
 tags:
   - New England
   - Travel
@@ -42,5 +42,6 @@ We were able to arrive at Pemigewasset Outlook just as the sun was setting over 
 
 Just a minute's drive away we were able to catch the moonrise as well. If you walk toward the path in the bushes below the parking lot (make sure you have long pants) you'll be able to capture fall grasses and foliage in the foreground.
 
-
 {% include figure image_path="/assets/images/posts/2022-12-30-fall-white-mountains-2-5.jpg" alt="Moonrise" caption="This reminds me a lot of the Japanese festival [Tsukimi](https://en.wikipedia.org/wiki/Tsukimi) because of the moon, grass, and mid-autumn setting." %}
+
+You can see a Google My Maps of the locations listed in this post series [here](https://www.google.com/maps/d/edit?mid=1UlaC_hf7BZ2H2eEbWm-MLHhALCY-gM8&usp=share_link).
