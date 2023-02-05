@@ -14,4 +14,4 @@ In my free time I enjoy landscape photography, road cycling, Japanese variety sh
 * ⛩️ Rewatching anime
 * ⌨️ Custom mechanical keyboards
 * 💬 Fansubbing Gaki no Tsukai ya Arahende
-* 🆕🎮 Legend of Zelda: Breath of the Wild, Stardew Valley
+* 🆕🎮 Old School RuneScape, Legend of Zelda: Breath of the Wild, Stardew Valley
