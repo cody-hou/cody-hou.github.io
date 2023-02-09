@@ -1,7 +1,7 @@
 ---
 title: "Dumpling Recipe"
 date: 2023-01-24
-last_modified_at: 2023-01-24
+last_modified_at: 2023-02-09
 tags:
   - Recipes
 header:
@@ -19,7 +19,7 @@ This recipe makes roughly 75 fully filled dumplings (by my estimates most people
 * For pure spinach dumplings I use ~30-32 oz frozen cut spinach per pound of ground pork (either three 10 oz bags or one 32 oz bags, whatever unit is available in your store). For spinach and napa cabbage dumplings I use ~15-16 oz frozen cut spinach and ~1.5 lb napa cabbage (roughly half a large napa cabbage) per pound of ground pork. The amounts don't need to be exact, but I find this gives me a good starting point.
 * 1-2 tsp ginger (like, half of a section)
 * 1-2 green onion stalks
-* 2-3 packages of dumpling wrappers (it's better to have too many than too few, as your folding style will dictate how many wrappers you will use; anything you don't use can be re-frozen)
+* 2-3 packages of dumpling wrappers (I use [Twin Marquis Shanghai-style wrappers](https://www.twinmarquis.com/products/shanghai-style-dumpling-wrapper/); it's better to have too many than too few, as your folding style will dictate how many wrappers you will use, and anything you don't use can be re-frozen)
 * 4 tbsp soy sauce (I use [Kikkoman](https://kikkomanusa.com/homecooks/products/soy-sauce-non-gmo/), but anything will do) 
 * 1 tbsp dark soy sauce (called "lao chou," 老抽; I use [this one from Lee Kum Kee](https://usa.lkk.com/en/products/premium-dark-soy-sauce); it's mainly for color, so you could just substitute it with 1 tbsp soy sauce)
 * 1 tbsp Shaoxing cooking wine (called "shao xing jiu," 绍兴酒; any brand will work, I found [this one](https://goldenfortuneusa.com/products/dried-food-seasoning-sauces-mixes-spices/rich-pagoda-shaoxing-cooking-wine-060280) at my Chinese grocery); personally I was able to discern whether this was missing or not 
@@ -74,7 +74,7 @@ I don't particularly have a good guide on how to wrap them (there are probably m
 
 ### Cooking
 
-While there are ways to fry fresh dumplings, my recommendation is to eat them boiled (called "shui jiao,"" 水饺) on the first day. They will be easier to store as leftovers this way. The leftover boiled dumplings can then be easily fried with vegetable in a fry pan.
+While there are ways to fry fresh dumplings, my recommendation is to eat them boiled (called "shui jiao," 水饺) on the first day. They will be easier to store as leftovers this way. The leftover boiled dumplings can then be easily fried with vegetable in a fry pan.
 
 Bring a large pot of water to a rolling boil and add up to 25 dumplings. Mix the water around to make sure no dumplings stick to the bottom. Let the water boil and then add a cup of cold water. Wait until the water boils over again before serving.
 

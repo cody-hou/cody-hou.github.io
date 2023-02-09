@@ -1,7 +1,7 @@
 ---
 title: "Creating a Blog and Portfolio on GitHub Pages with the Minimal Mistakes Theme"
 date: 2023-02-05
-last_modified_at: 2023-02-05
+last_modified_at: 2023-02-09
 tags:
   - Guides
 header:
@@ -32,7 +32,7 @@ There are [multiple ways to set up the website](https://mmistakes.github.io/mini
     * `index.html`
     * `.gitignore`
 
-3. Edit `Gemfile` by uncommenting everything else and then adding the following.
+3. Edit `Gemfile` by commenting everything else and then adding the following.
 
     ```ruby
     gem "github-pages", group: :jekyll_plugins
@@ -135,3 +135,9 @@ Although the header images are now showing, the spacing is too close for my liki
 ```
 
 This gives me enough spacing between posts but you can adjust the em value to your liking. I think teaser images add a lot of visual interest to the home page. I size my teaser images to 1280 px by 375 px.
+
+## Linking a Custom Domain
+
+While [username].github.io is fine, a personal blog wouldn't really be complete without a custom domain. I use [Google Domains](https://domains.google/), which are cheap and easy to set up. My .com domain costs $12 a year. You can get fancy with the endings if you want! Once you get your domain, follow [GitHub Pages' documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site) on how to set up the domain for your website.
+
+Using a Google-managed domain is great because it ties well with search engine optimization (SEO) on Google, which is important if you want your website to be found by others. Through the [Google Search Console](https://search.google.com/search-console/about) you can easily and quickly obtain an SEO hash which goes under the `google_site_verification` line in `_config.yml`. 
