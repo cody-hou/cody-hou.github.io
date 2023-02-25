@@ -1,7 +1,7 @@
 ---
 title: "Setting Up Arch Linux With BTRFS, Encryption, and Swap"
 date: 2022-08-04
-last_modified_at: 2022-08-06
+last_modified_at: 2023-02-25
 tags:
   - Arch Linux
   - Guides
@@ -10,7 +10,9 @@ header:
   teaser: /assets/images/headers/2022-08-04-arch-encrypt-swap-header.png
 ---
 
-This blog post will demonstrate how I set up a new Arch Linux install with BTRFS, an encrypted filesystem with `dm-crypt`, and encrypted swap partition via a swap file. This post assumes some familiarity with the command line, Linux distros, and terminology around installing a Linux distro.
+This blog post will demonstrate how I set up a new Arch Linux install with BTRFS, an encrypted filesystem with `dm-crypt`, and encrypted swap partition via a swap file. This post assumes some basic familiarity with the command line, Linux distros, and terminology around installing a Linux distro.
+
+This post was last updated at 2023-02-25. The [Arch Linux install guide](https://wiki.archlinux.org/title/Installation_guide) on the Arch wiki may have more up-to-date instructions on installation.
 
 ## Why?
 
@@ -23,8 +25,22 @@ This blog post will demonstrate how I set up a new Arch Linux install with BTRFS
 The steps below assumes the system you're installing Arch Linux to uses UEFI (which has been the standard for some time now), not legacy BIOS.
 {: .notice--warning}
 
-1. Boot into an Arch Linux install USB. Establish a network connection and update the system clock. If you're unsure of these steps, consult the [Arch Linux install guide](https://wiki.archlinux.org/title/Installation_guide).
-2. Create a 512 MB partition for EFI and another partition (usually the rest of the disk space) for Linux filesystem. You can use several different tools for this, but I use `gdisk`. The disk name usually looks like `sda` for SATA-attached disks or `nvme0n1` for NVMEs. You can check this with `fdisk -l`. I will use `nvme0n1` from now on. For me, the first partition is `nvme0n1p1` (usually `sda1` for SATA devices) and my second partition is `nvme0n1p2` (`sda2` for SATA devices). 
+1. Boot into an Arch Linux install USB. Verify the system is using UEFI boot mode by listing files in `efivars` (if directory is blank, boot mode is legacy BIOS). Establish a network connection with [`iwd`](https://wiki.archlinux.org/title/iwd) if using WiFi and verify the system clock.
+
+    ```shell
+    ls /sys/firmware/efi/efivars
+    iwctl
+    timedatectl status
+    ```
+
+2. Create a 512 MB EFI partition (if dual-booting, at least 1GB) and a Linux filesystem partition (usually the rest of the disk space) for Linux filesystem.
+    
+    * The disk name usually looks like `sda` for SATA-attached disks or `nvme0n1` for NVME drives. You can check this with `fdisk -l`. I will use `nvme0n1` from now on.
+    * For NVME disks, the first partition is named `nvme0n1p1` (`sda1` for SATA devices) and the second partition is `nvme0n1p2` (`sda2` for SATA devices).
+    * You can use several different tools for this, but I use [`gdisk`](https://man.archlinux.org/man/gdisk.8.en).
+    * If formatting and overwriting  an existing disk, use `wipefs --all` followed by the device name (e.g. `/dev/nvme0n1`). For good measure, I also clear the partition data and create a new GPT table in `gdisk` with the `o` option.
+    * In `gdisk`, create a new partition with `n` and follow the prompts. I make my first partition the EFI partition (press Enter to accept default first sector, then type `+512M` or `+1G`) and the second my filesystem partition (press Enter and accept all defaults).
+    * In `gdisk`, use `ef00` to set the filesystem to EFI. 
 
     ```shell
     gdisk /dev/nvme0n1
@@ -86,14 +102,45 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     swapon ./swapfile
     ```
 
-9. From here you can continue with the official install guide by installing the necessary base packages on your system. I use the packages below. Be sure to replace `intel-ucode` with `amd-ucode` if using an AMD processor. 
+9. Install the necessary base packages on your system. I use the packages below. Be sure to replace `intel-ucode` with `amd-ucode` if using an AMD processor. 
 
     ```shell
     cd
-    pacstrap /mnt base base-devel linux linux-firmware intel-ucode zsh zsh-completions sudo vim git btrfs-progs dosfstools e2fsprogs exfat-utils ntfs-3g smartmontools networkmanager dialog man-db man-pages texinfo
+    pacstrap -K /mnt base base-devel linux linux-firmware intel-ucode zsh zsh-completions sudo vim git btrfs-progs dosfstools e2fsprogs exfat-utils ntfs-3g smartmontools networkmanager dialog man-db man-pages texinfo pacman-contrib
     ```
 
-10. Continue with the install guide by generating your `fstab`, `arch-chroot`ing into `/mnt`, and setting time zone, system locale, hostname, and root password.
+10. Continue with the install guide by generating your `fstab`, `arch-chroot`ing into `/mnt`, and setting up time zone, system locale, hostname, networking, users, and sudo
+
+    ```shell
+    genfstab -U /mnt >> /mnt/etc/fstab
+    arch-chroot /mnt
+
+    # Look in /usr/share/zoneinfo/ for your region and city!
+    ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
+    hwclock --systohc
+
+    # Edit /etc/locale.gen and uncomment necessary locales
+    vim /etc/locale.gen
+    locale-gen
+
+    # Add name of machine to /etc/hostname
+    vim /etc/hostname
+
+    # Edit /etc/hosts and add uncommented info below
+    # 127.0.0.1    localhost
+    # ::1          localhost
+    # 127.0.1.1    [replace all this text and brackets with name of machine]
+    vim /etc/hosts
+
+    passwd
+    useradd -m -G wheel,rfkill -s /bin/zsh cody
+    passwd cody
+    chfn -f “Cody Hou” cody
+
+    # Uncomment wheel line
+    EDITOR=vim visudo
+    ```
+
 11. For the boot manager, I use `grub` because there are some packages that play nicely with restoring snapshots from the GRUB interface that we will see later.
 
     ```shell
@@ -126,14 +173,26 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     root=/dev/mapper/cryptroot cryptdevice=UUID=5f5b0b02-318c-4980-bcb5-793d44fe4387:cryptroot 
     ```
 
-17. Regenerate `grub.cfg`
+17. Regenerate `grub.cfg`.
 
     ```shell
     grub-mkconfig -o /boot/grub/grub.cfg
     ```
 
-18. At this stage you can continue with the official install guide to enable networking, add a user, and enable `sudo`.
-19. Reboot the system and remove the Arch Linux install USB. You should be prompted to enter a password for your encrypted partition before logging in! If not, something in the process didn't go quite right (e.g. UUID wasn't typed correctly). With the install USB, you can remount all the partitions and `arch-chroot` to fix this.
+18. Add or configure any additional software. For example, I make sure to enable the following services.
+
+    ```shell
+    # Networking on reboot
+    systemctl enable NetworkManager.service
+
+    # TRIM on SSDs
+    systemctl enable fstrim.timer
+
+    # pacman cache cleaner
+    systemctl enable paccache.timer
+    ```
+
+19. Exit chroot, reboot the system, and remove the Arch Linux install USB. You should be prompted to enter a password for your encrypted partition before logging in! If not, something in the process didn't go quite right (e.g. UUID wasn't typed correctly). With the install USB, you can remount all the partitions and `arch-chroot` to fix this.
 20. We're now going to set up `snapper`.
 
     ```shell
@@ -182,7 +241,7 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     sudo systemctl enable fstrim.timer
     ```
 
-25. Home stretch! Next I'll install `yay`, an AUR helper. It helps us install and manage packages from the AUR.
+25. Home stretch! Next I'll install `yay`, an AUR helper. It helps us install and manage packages from the AUR. You can also use `paru` if you wish.
 
     ```shell
     git clone https://aur.archlinux.org/yay
@@ -202,16 +261,11 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     sudo mkinitcpio -P
     ```
 
-28. Sync `/boot` to `/.bootbackup` because `snapper` cannot backup `/boot`. 
-
-    ```shell
-    sudo rsync -a --delete /boot /.bootbackup
-    ```
-29. Create the folder `/etc/pacman.d/hooks` and in it, create a hook which will sync `/boot` whenver there is a kernel update.
+28. Our BTRFS snapshots will not backup `/boot` as it is on a different partition. If an update to a newer kernel version causes instability, we will want to restore the older kernel image. Create the folder `/etc/pacman.d/hooks` and in it, create a first hook which will sync `/boot` before a kernel update.
 
     ```shell
     sudo mkdir /etc/pacman.d/hooks
-    sudo vim /etc/pacman.d/hooks/50-bootbackup.hook
+    sudo vim /etc/pacman.d/hooks/0-bootbackup-preupdate.hook
     ```
 
     ```
@@ -224,9 +278,30 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     
     [Action]
     Depends = rsync
-    Description = Backing up /boot...
+    Description = Backing up /boot before updating...
+    When = PreTransaction
+    Exec = /usr/bin/rsync -a --delete /boot /.bootbackup/preupdate
+    ```
+
+29. Duplicate this hook and name it as `95-bootbackup-postupdate.hook`, this time to copy the new kernel after updating.
+
+    ```shell
+    sudo cp /etc/pacman.d/hooks/0-bootbackup-preupdate.hook /etc/pacman.d/hooks/95-bootbackup-postupdate.hook
+    ```
+
+    ```
+    [Trigger]
+    Operation = Upgrade
+    Operation = Install
+    Operation = Remove
+    Type = Path
+    Target = usr/lib/modules/*/vmlinuz
+    
+    [Action]
+    Depends = rsync
+    Description = Backing up /boot after updating...
     When = PostTransaction
-    Exec = /usr/bin/rsync -a --delete /boot /.bootbackup
+    Exec = /usr/bin/rsync -a --delete /boot /.bootbackup/postupdate
     ```
 
 30. Reboot and make an image for rollback to this base system in case something bad goes wrong.
