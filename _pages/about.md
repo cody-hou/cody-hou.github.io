@@ -11,7 +11,8 @@ In my free time I enjoy landscape photography, road cycling, Japanese variety sh
 * 🥾 Hiking New England as much as I can
 * 📝 Blogging with GitHub Pages
 * 💻 Mastering and customizing Vim
-* ⛩️ Rewatching anime
+* ⛩️ Watching anime (recent favorites: Hyouka, Hibike! Euphonium)
 * ⌨️ Custom mechanical keyboards
 * 💬 Fansubbing Gaki no Tsukai ya Arahende
 * 🆕🎮 Old School RuneScape, Legend of Zelda: Breath of the Wild, Stardew Valley
+* 🆕 Reading e-books in Japanese (recently finished 本好きの下剋上～司書になるためには手段を選んでいられません～第一部「兵士の娘I」)
