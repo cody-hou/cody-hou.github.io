@@ -1,7 +1,7 @@
 ---
 title: "Reading Japanese E-Books on Kindle"
 date: 2023-03-05
-last_modified_at: 2023-03-05
+last_modified_at: 2023-03-14
 tags:
   - Guides
 header:
@@ -74,14 +74,16 @@ The Kindle comes with one Gothic (sans-serif) and two Mincho (serif) typefaces. 
 
 I like to rotate different fonts depending on how I'm feeling. I find myself switching between Source Han Serif and IPAex 明朝 the most.
 
-## My Reading List (as of 2023-03-05)
+## My Reading List (as of 2023-03-14)
 
 While I haven't read through the full list below, I have seen good reviews about these light novels (though there are lots of reincarnation/fantasy ones here). I find it especially fun to watch the anime adaptations of books as I read to visualize what I'm reading or make sure that I understood a chapter correctly.
 
-* [本好きの下剋上～司書になるためには手段を選んでいられません～第一部「兵士の娘I」](https://www.amazon.co.jp/gp/product/B00TKIAMYW/ref=ppx_yo_dt_b_d_asin_title_o02?ie=UTF8&psc=1): I have finished this book and can confirm that it's a great read.
-* [狼と香辛料](https://www.amazon.co.jp/gp/product/B00GOO636G/ref=ppx_yo_dt_b_d_asin_title_o01?ie=UTF8&psc=1)
-* [転生したらスライムだった件1](https://www.amazon.co.jp/gp/product/B00L33R6K0/ref=ppx_yo_dt_b_d_asin_title_o03?ie=UTF8&psc=1)
+* [本好きの下剋上～司書になるためには手段を選んでいられません～第一部「兵士の娘I」](https://www.amazon.co.jp/gp/product/B00TKIAMYW/ref=ppx_yo_dt_b_d_asin_title_o02?ie=UTF8&psc=1): I have finished this book and can confirm that it's a great read; also has a popular anime adaptation.
+* [氷菓 「古典部」シリーズ](https://www.amazon.co.jp/%E6%B0%B7%E8%8F%93-%E3%80%8C%E5%8F%A4%E5%85%B8%E9%83%A8%E3%80%8D%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E8%A7%92%E5%B7%9D%E6%96%87%E5%BA%AB-%E7%B1%B3%E6%BE%A4-%E7%A9%82%E4%BF%A1-ebook/dp/B009PKN0D0/ref=sr_1_1?crid=IYN6VJ60C2MU&keywords=%E6%B0%B7%E8%8F%93+%E5%B0%8F%E8%AA%AC&qid=1678803042&s=digital-text&sprefix=%2Cdigital-text%2C361&sr=1-1): has a stellar anime adaptation by Kyoto Animation.
+* [響け！ ユーフォニアム 北宇治高校吹奏楽部へようこそ](https://www.amazon.co.jp/%E9%9F%BF%E3%81%91%EF%BC%81-%E3%83%A6%E3%83%BC%E3%83%95%E3%82%A9%E3%83%8B%E3%82%A2%E3%83%A0-%E5%8C%97%E5%AE%87%E6%B2%BB%E9%AB%98%E6%A0%A1%E5%90%B9%E5%A5%8F%E6%A5%BD%E9%83%A8%E3%81%B8%E3%82%88%E3%81%86%E3%81%93%E3%81%9D-%E5%AE%9D%E5%B3%B6%E7%A4%BE%E6%96%87%E5%BA%AB-%E6%AD%A6%E7%94%B0%E7%B6%BE%E4%B9%83-ebook/dp/B07SZBJR55/ref=sr_1_1?crid=PCXDOF0HJSFN&keywords=%E9%9F%BF%E3%81%91+%E3%83%A6%E3%83%BC%E3%83%95%E3%82%A9%E3%83%8B%E3%82%A2%E3%83%A0+%E5%B0%8F%E8%AA%AC&qid=1678803212&s=digital-text&sprefix=%E9%9F%BF%E3%81%91%2Cdigital-text%2C203&sr=1-1): has a stellar anime adaptation by Kyoto Animation.
+* [転生したらスライムだった件1](https://www.amazon.co.jp/gp/product/B00L33R6K0/ref=ppx_yo_dt_b_d_asin_title_o03?ie=UTF8&psc=1): has a popular anime adaptation.
 * [異世界食堂　１](https://www.amazon.co.jp/gp/product/B071JYJ8ZB/ref=ppx_yo_dt_b_d_asin_title_o04?ie=UTF8&psc=1)
 * [転生王女と天才令嬢の魔法革命](https://www.amazon.co.jp/gp/product/B083TR8VBH/ref=ppx_yo_dt_b_d_asin_title_o05?ie=UTF8&psc=1)
+* [狼と香辛料](https://www.amazon.co.jp/gp/product/B00GOO636G/ref=ppx_yo_dt_b_d_asin_title_o01?ie=UTF8&psc=1)
 
 Happy reading!
