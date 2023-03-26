@@ -40,9 +40,9 @@ Despite the harsh weather, Iceland harbors life amidst picturesque waterfalls, m
 
 {% include gallery id="gallery3" caption="A bird glides over broken blue ice at Jökulsárlón. D750, 105 f/2.8G, f/3.2, ISO 100, 1/2500s." %}
 
-{% include gallery id="gallery4" caption='The winding Hringvegur ("ring road") weaves its way through some mist-veiled ridges in the distance. Panorama, D750, 105 f/2.8G, f/7.1, ISO 100, 1/200s.' %}
+{% include gallery id="gallery4" caption='The winding Hringvegur ("ring road") weaves its way through some mist-veiled ridges in the distance. Panorama of three images, D750, 105 f/2.8G, f/7.1, ISO 100, 1/200s.' %}
 
-{% include gallery id="gallery5" caption="Raging water crashes down the Dettifoss, said to be the second most powerful waterfall in Europe. D750, 16-35 f/4G @ 16mm, f/7.1, ISO 100, 1/100s." %}
+{% include gallery id="gallery5" caption="Raging water crashes down Dettifoss, said to be the second most powerful waterfall in Europe. D750, 16-35 f/4G @ 16mm, f/7.1, ISO 100, 1/100s." %}
 
 {% include gallery id="gallery6" caption="Water gently flows down the steps of Dynjandi. D750, 16-35 f/4G @ 16mm, f/22, ISO 50, 1/2s." %}
 
