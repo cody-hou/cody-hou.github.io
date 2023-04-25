@@ -21,7 +21,7 @@ title_separator          : "-"
 subtitle                 : "Blog and portfolio" 
 name                     : "Cody Hou"
 description              : "My blog and portfolio."
-url                      : "https://www.codyhou.com/"
+url                      : "https://www.codyhou.com"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "cody-hou/cody-hou.github.io" 
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -106,7 +106,7 @@ analytics:
 author:
   name             : "Cody Hou"
   avatar           : "/assets/images/bio-photo.jpg"
-  bio              : "I'm a med student blogging about my hobbies, travel, and tech"
+  bio              : "I'm a student blogging about my hobbies, travel, and tech"
   location         : "Cambridge, Massachusetts"
   email            :
   links:
