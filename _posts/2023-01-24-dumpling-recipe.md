@@ -1,7 +1,7 @@
 ---
 title: "Dumpling Recipe"
 date: 2023-01-24
-last_modified_at: 2023-02-09
+last_modified_at: 2023-10-04
 tags:
   - Recipes
 header:
@@ -9,13 +9,13 @@ header:
   teaser: /assets/images/headers/2023-01-24-dumpling-recipe-header.jpg
 ---
 
-Happy Lunar New Year, and 新年快乐恭喜发财! While there are many different traditions surrounding what to eat on New Year's, ours is making dumplings. There isn't any complex backstory to this (thank goodness) and the recipe is right below. No endless scrolling!
+Happy Lunar New Year, and 新年快乐恭喜发财! While there are many different traditions surrounding what to eat on New Year's, ours is making dumplings. 
 
 ## Ingredients
 
 This recipe makes roughly 75 fully filled dumplings (by my estimates most people eat 12-17 in a meal). I usually double this recipe for parties or to cook for a week. For ingredients that aren't usually found at grocery stores, I have links to brand suggestions (but by all means use what you can find).
 
-* 2 lbs ground pork (This can be tricky to find in smaller grocery stores in Boston, as Star Market and smaller Target stores don't stock this. There needs to be a decent amount of fat in the meat, and I found that Whole Foods ground pork is leaner and doesn't taste as juicy. If you can go to a larger Target, [their ground pork](https://www.target.com/p/ground-pork-1lb-good-38-gather-8482/-/A-15013961) is perfect for this. Market Basket ground pork works well too. Honestly, use whatever you can get your hands on.) 
+* 1 lb ground pork (This can be tricky to find in smaller grocery stores in Boston, as Star Market and smaller Target stores don't stock this. There needs to be a decent amount of fat in the meat, and I found that Whole Foods ground pork is leaner and doesn't taste as juicy. If you can go to a larger Target, [their ground pork](https://www.target.com/p/ground-pork-1lb-good-38-gather-8482/-/A-15013961) is perfect for this. Market Basket ground pork works well too. Honestly, use whatever you can get your hands on.) 
 * For pure spinach dumplings I use ~30-32 oz frozen cut spinach per pound of ground pork (either three 10 oz bags or one 32 oz bags, whatever unit is available in your store). For spinach and napa cabbage dumplings I use ~15-16 oz frozen cut spinach and ~1.5 lb napa cabbage (roughly half a large napa cabbage) per pound of ground pork. The amounts don't need to be exact, but I find this gives me a good starting point.
 * 1-2 tsp ginger (like, half of a section)
 * 1-2 green onion stalks
