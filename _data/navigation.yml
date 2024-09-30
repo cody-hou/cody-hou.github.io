@@ -2,14 +2,11 @@
 main:
   - title: "Photography"
     url: /photography/
-  - title: "Research"
-    url: /research/
   - title: "Archive"
     url: /year-archive/
   - title: "About"
     url: /about/
-  - title: "CV"
-    url: /assets/files/CV.pdf
+
   # - title: "Quick-Start Guide"
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "About"
