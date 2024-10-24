@@ -1,7 +1,7 @@
 ---
 title: "Setting Up Arch Linux With BTRFS, Encryption, and Swap"
 date: 2022-08-04
-last_modified_at: 2023-02-25
+last_modified_at: 2024-10-24
 tags:
   - Arch Linux
   - Guides
@@ -10,37 +10,39 @@ header:
   teaser: /assets/images/headers/2022-08-04-arch-encrypt-swap-header.png
 ---
 
-This blog post will demonstrate how I set up a new Arch Linux install with BTRFS, an encrypted filesystem with `dm-crypt`, and encrypted swap partition via a swap file. This post assumes some basic familiarity with the command line, Linux distros, and terminology around installing a Linux distro.
+This post was last updated at 2024-10-24. The [Arch Linux install guide](https://wiki.archlinux.org/title/Installation_guide) on the Arch wiki may have more up-to-date instructions on installation.
+{: .notice--warning}
 
-This post was last updated at 2023-02-25. The [Arch Linux install guide](https://wiki.archlinux.org/title/Installation_guide) on the Arch wiki may have more up-to-date instructions on installation.
+This blog post will demonstrate how I set up a new Arch Linux install with BTRFS, an encrypted filesystem with `dm-crypt`, encrypted swap partition via a swap file, and (optionally) hibernation. This post assumes some basic familiarity with the command line, Linux distros, and terminology around installing a Linux distro.
 
 ## Why?
 
 * **Why Arch:** Arch Linux is a rolling release distro. That means getting to play with the latest features! You get to decide how _you_ like the software: the customization is endless. Plus, the comprehensive official Arch Linux repositories with the Arch User Repository (AUR) centralizes the installation of software. However, being on the bleeding edge and being hands-on with the software means that an update or change might accidentally break the system, which leads to the next point.  
 * **Why BTRFS:** While BTRFS supports many advanced features, such as copy-on-write, one of the main advantages of this filesystem is the ability to easily create snapshots in a space-efficient manner. Snapshots can be restored from an Arch Linux install USB, which is handy especially if you can no longer log into the system. 
 * **Why encryption:** Data security is important, especially on laptops. As someone who has access and may locally store protected health information (PHI), ensuring that these data cannot be accessed if my device is lost or stolen is paramount. BTRFS supports encryption with swap files.
+* **Why hibernation:** While optional these days as flash storage is commonplace, hibernation can be an excellent option for preserving battery life while preserving the data of your open applications. As I occasionally need to switch between my primary Arch install and secondary Windows install for certain applications, hibernation allows me to quickly pause my work and start where I left off.
 
 ## Installation
 
 The steps below assumes the system you're installing Arch Linux to uses UEFI (which has been the standard for some time now), not legacy BIOS.
 {: .notice--warning}
 
-1. Boot into an Arch Linux install USB. Verify the system is using UEFI boot mode by listing files in `efivars` (if directory is blank, boot mode is legacy BIOS). Establish a network connection with [`iwd`](https://wiki.archlinux.org/title/iwd) if using WiFi and verify the system clock.
+1. Boot into an Arch Linux install USB. Verify the system is using UEFI boot mode by checking the UEFI bitness. Establish a network connection with [`iwd`](https://wiki.archlinux.org/title/iwd) if using Wi-Fi and verify the system clock.
 
     ```shell
-    ls /sys/firmware/efi/efivars
+    cat /sys/firmware/efi/fw_platform_size
     iwctl
-    timedatectl status
+    timedatectl
     ```
 
-2. Create a 512 MB EFI partition (if dual-booting, at least 1GB) and a Linux filesystem partition (usually the rest of the disk space) for Linux filesystem.
+2. Create a 1 GB EFI partition and a Linux filesystem partition (usually the rest of the disk space) for Linux filesystem.
     
     * The disk name usually looks like `sda` for SATA-attached disks or `nvme0n1` for NVME drives. You can check this with `fdisk -l`. I will use `nvme0n1` from now on.
     * For NVME disks, the first partition is named `nvme0n1p1` (`sda1` for SATA devices) and the second partition is `nvme0n1p2` (`sda2` for SATA devices).
-    * You can use several different tools for this, but I use [`gdisk`](https://man.archlinux.org/man/gdisk.8.en).
+    * You can use several different tools for this, including `fdisk` as we used before, but I use [`gdisk`](https://man.archlinux.org/man/gdisk.8.en) as it defaults to GPT over MBR.
     * If formatting and overwriting  an existing disk, use `wipefs --all` followed by the device name (e.g. `/dev/nvme0n1`). For good measure, I also clear the partition data and create a new GPT table in `gdisk` with the `o` option.
-    * In `gdisk`, create a new partition with `n` and follow the prompts. I make my first partition the EFI partition (press Enter to accept default first sector, then type `+512M` or `+1G`) and the second my filesystem partition (press Enter and accept all defaults).
-    * In `gdisk`, use `ef00` to set the filesystem to EFI. 
+    * In `gdisk`, create a new partition with `n` and follow the prompts. I make my first partition the EFI partition (press Enter to accept default first sector, then type `+1G`) and the second my filesystem partition (press Enter and accept all defaults).
+    * In `gdisk`, use `ef00` to set the filesystem of the first partition to EFI. 
 
     ```shell
     gdisk /dev/nvme0n1
@@ -91,14 +93,11 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     mount /dev/nvme0n1p1 /mnt/boot
     ```
 
-8. Make sure `swap` subvolume is not being snapshotted, then create a swap file (my rule of thumb is 2 GB for VMs or 0.5 times the system RAM in GB; change `count=` parameter to your swap file size, in MB) and turn it on.
+8. Create a swap file and turn it on. My rule of thumb is 2 GB for VMs or 0.5 times the system RAM in GB; change the `size=` parameter as appropriate. If using hibernation, set the size equal to the memory of the computer.
 
     ```shell
     cd /mnt/swap
-    chattr +C /mnt/swap
-    dd if=/dev/zero of=./swapfile bs=1M count=4096 status=progress
-    chmod 0600 ./swapfile
-    mkswap -U clear ./swapfile
+    btrfs filesystem mkswapfile --size 4g --uuid clear ./swapfile
     swapon ./swapfile
     ```
 
@@ -132,13 +131,16 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     # 127.0.1.1    [replace all this text and brackets with name of machine]
     vim /etc/hosts
 
+    # Set root password
     passwd
-    useradd -m -G wheel,rfkill -s /bin/zsh cody
+
+    # Set username and password. Also add to the wheel group for sudo. I use the zsh shell.
+    useradd -m -G wheel -s /bin/zsh cody
     passwd cody
     chfn -f “Cody Hou” cody
 
-    # Uncomment wheel line
-    EDITOR=vim visudo
+    # Uncomment wheel line using vim. Use EDITOR=nano if preferred.
+    visudo
     ```
 
 11. For the boot manager, I use `grub` because there are some packages that play nicely with restoring snapshots from the GRUB interface that we will see later.
@@ -147,10 +149,10 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     pacman -S grub efibootmgr
     ```
 
-12. Edit `/etc/mkinitcpio.conf`. Add `btrfs` to `MODULES` and make sure `HOOKS` looks like the following:
+12. Edit `/etc/mkinitcpio.conf`. Add `btrfs` to `MODULES` and add `encrypt` to `HOOKS`, as in the following example. If using hibernate, also add `resume` following `filesystems`.
 
     ```
-    HOOKS=(base udev autodetect modconf block encrypt filesystems keyboard fsck)
+    HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt filesystems fsck)
     ```
 
 13. Regenerate your `initramfs`.
@@ -265,7 +267,8 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
 
     ```shell
     sudo mkdir /etc/pacman.d/hooks
-    sudo vim /etc/pacman.d/hooks/0-bootbackup-preupdate.hook
+    cd /etc/pacman.d/hooks
+    sudo vim 0-bootbackup-pretransaction.hook
     ```
 
     ```
@@ -274,19 +277,19 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     Operation = Install
     Operation = Remove
     Type = Path
-    Target = usr/lib/modules/*/vmlinuz
+    Target = /usr/lib/modules/*/vmlinuz
     
     [Action]
     Depends = rsync
-    Description = Backing up /boot before updating...
+    Description = Backing up /boot before committing transaction...
     When = PreTransaction
-    Exec = /usr/bin/rsync -a --delete /boot /.bootbackup/preupdate
+    Exec = /usr/bin/rsync -a --delete /boot /.bootbackup/pretransaction
     ```
 
-29. Duplicate this hook and name it as `95-bootbackup-postupdate.hook`, this time to copy the new kernel after updating.
+29. Duplicate this hook and name it as `95-bootbackup-posttransaction.hook`, this time to copy the new kernel after updating.
 
     ```shell
-    sudo cp /etc/pacman.d/hooks/0-bootbackup-preupdate.hook /etc/pacman.d/hooks/95-bootbackup-postupdate.hook
+    sudo cp 0-bootbackup-pretransaction.hook /etc/pacman.d/hooks/95-bootbackup-posttransaction.hook
     ```
 
     ```
@@ -295,25 +298,19 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     Operation = Install
     Operation = Remove
     Type = Path
-    Target = usr/lib/modules/*/vmlinuz
+    Target = /usr/lib/modules/*/vmlinuz
     
     [Action]
     Depends = rsync
-    Description = Backing up /boot after updating...
+    Description = Backing up /boot after committing transaction...
     When = PostTransaction
-    Exec = /usr/bin/rsync -a --delete /boot /.bootbackup/postupdate
+    Exec = /usr/bin/rsync -a --delete /boot /.bootbackup/posttransaction
     ```
 
-30. Reboot and make an image for rollback to this base system in case something bad goes wrong.
+30. Reboot, and you're finished! Phew, that was a handful. But this establishes an excellent base system from which to work off of. You can install your favorite desktop environment/window manager and programs. I use KDE.
 
     ```shell
-    sudo snapper -c root create --description “Clean BTRFS install with Snapper”
-    ```
-
-31. Finished! Phew, that was a handful. But this establishes an excellent base system from which to work off of. You can install your favorite desktop environment/window manager and programs. I use KDE.
-
-    ```shell
-    sudo pacman -S xorg xorg-xinit xf86-input-libinput xf86-input-wacom mesa plasma-meta sddm konsole xdg-user-dirs xdg-utils tlp tlp-rdw reflector firefox dolphin ark kate kio-gdrive okular elisa vlc gwenview gimp krita kcalc spectacle kcharselect ksystemlog packagekit-qt5 kvantum noto-fonts noto-fonts-cjk noto-fonts-emoji fcitx5-mozc fcitx5-qt fcitx5-gtk fcitx5-configtool bitwarden libreoffice-still hunspell hunspell-en_us print-manager skanpage cups ghostscript gsfonts cups-pdf hplip bluez bluez-utils pulseaudio-bluetooth neofetch kdeconnect
+    sudo pacman -S plasma-meta mesa sddm konsole xdg-user-dirs xdg-utils tlp reflector firefox dolphin ark kate okular elisa vlc gwenview gimp krita kcalc spectacle kcharselect ksystemlog noto-fonts noto-fonts-cjk noto-fonts-emoji fcitx5-mozc fcitx5-configtool bitwarden libreoffice-still hunspell hunspell-en_us bluez bluez-utils neofetch kdeconnect
     ```
 
 ## Resources
