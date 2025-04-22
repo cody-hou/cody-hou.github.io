@@ -115,7 +115,7 @@ Skyrim is now set up to be modded. For the following steps, I like to install th
 * [Static Mesh Improvement Mod](https://www.nexusmods.com/skyrimspecialedition/mods/659)
 * [Obsidian Weathers and Seasons](https://www.nexusmods.com/skyrimspecialedition/mods/12125)
 * [Moon and Stars](https://www.nexusmods.com/skyrimspecialedition/mods/73336)
-* [ENB Light](https://www.nexusmods.com/skyrimspecialedition/mods/22574): check `Full install`.
+* [ENB Light](https://www.nexusmods.com/skyrimspecialedition/mods/22574): check `Full install` and all additional options.
 * [Storm Lightning](https://www.nexusmods.com/skyrimspecialedition/mods/29243): for the halos, check the `Halo Dim (Level 2)` settings.
 * [Splashes of Storms](https://www.nexusmods.com/skyrimspecialedition/mods/72985)
 * [Enhanced Volumetric Lighting and Shadows](https://www.nexusmods.com/skyrimspecialedition/mods/63725): also install the optional underside mod.
