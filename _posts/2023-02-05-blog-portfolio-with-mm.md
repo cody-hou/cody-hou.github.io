@@ -34,11 +34,11 @@ There are [multiple ways to set up the website](https://mmistakes.github.io/mini
 
 3. Edit `Gemfile` by commenting everything else and then adding the following.
 
-    ```ruby
+    ~~~ ruby
     gem "github-pages", group: :jekyll_plugins
     gem "jekyll-include-cache", group: :jekyll_plugins
     gem "webrick"
-    ```
+    ~~~
 
 4. If you want GitHub emoji support on your website (such as :smile:), add `gem "jemoji"` under `group :jekyll_plugins do`. 
 5. Now we can start adding personal details to the website. Begin by editing `_config.yml` in the root directory.
@@ -49,7 +49,7 @@ There are [multiple ways to set up the website](https://mmistakes.github.io/mini
     * If you added the GitHub emoji plugin in the previous step, you will need to add it under `plugins:`.  
     * You can change the default template of how certain layout work under `defaults:`. By default the main pages (e.g. on my website, Photography, Research) do not show the author profile sidebar on the left, so I added the following to enable this:
 
-        ```yaml
+        ~~~ yaml
          # _pages
          - scope:
             path: ""
@@ -57,7 +57,7 @@ There are [multiple ways to set up the website](https://mmistakes.github.io/mini
           values:
             layout: single
             author_profile: true
-        ```
+        ~~~
 
     * You can also add collections, which are ways to consolidate content that looks good in a portfolio (e.g. my [photography](https://www.codyhou.com/photography/) page is a collection). More detailed instructions are [here](https://mmistakes.github.io/minimal-mistakes/docs/collections/).
 
@@ -68,17 +68,17 @@ There are [multiple ways to set up the website](https://mmistakes.github.io/mini
 
     * The website page structure is dictated in `_data/navigation.yml`. Create a `_pages` folder that correspond to the pages listed in `_data/navigation.yml`. These pages will show in the top bar. Pages are markdown files that begin with the following generic header (the following is for my "About Me" page):
 
-        ```md
+        ~~~ md
         ---
         title: "About Me"
         layout: single
         permalink: /about/
         ---
-        ```
+        ~~~
 
     * Markdown posts can be added under a `_posts/` folder. Posts begin with the following generic header (the following is the header for this post):
 
-        ```md
+        ~~~ md
         ---
         title: "Creating a Blog and Portfolio on GitHub Pages with the Minimal Mistakes Theme"
         date: 2023-02-05
@@ -89,7 +89,7 @@ There are [multiple ways to set up the website](https://mmistakes.github.io/mini
           image: /assets/images/headers/2023-02-05-blog-portfolio-with-mm-header.jpg
           teaser: /assets/images/headers/2023-02-05-blog-portfolio-with-mm-header.jpg
         ---
-        ```
+        ~~~
 
     * Copy `_includes/head/custom.html` from the Minimal Mistakes repo to configure and add favicons (follow the link in that HTML document).
     * I store all assets (images, documents, etc.) in a folder called `assets`. I recommend resizing large images, especially if you plan to add them to your blog posts, so you don't immediately exceed the GitHub storage limit. I resize my images to 1280 px on the long size.
@@ -100,23 +100,27 @@ There are [multiple ways to set up the website](https://mmistakes.github.io/mini
 
 Minimal Mistakes does not show teaser images of posts by default on the home page, which is a bit too minimalistic for me. To change this, first copy `_includes/archive-single.html` to your repo, which contains the following piece of code to display teasers with grid view:
 
-{% highlight html %}{% raw %}
+{% raw %}
+~~~ html
 {\% if include.type == "grid" and teaser \%}
   <div class="archive__item-teaser">
     <img src="{{ teaser | relative_url }}" alt="">
   </div>
 {\% endif \%}
-{% endraw %}{% endhighlight %}
+~~~
+{% endraw %}
 
 Modify the first line to check if the grid type is also a list. 
 
-{% highlight html %}{% raw %}
+{% raw %}
+~~~ html
 {\% if (include.type == "grid" or include.type == "list") and teaser \%}
-{% endraw %}{% endhighlight %}
+~~~
+{% endraw %}
 
 Although the header images are now showing, the spacing is too close for my liking. To fix this I change some settings in the Sass files by adding some space below the excerpts for each post. Copy the entire `_sass/` folder from the Minimal Mistakes repo. In `_sass/minimal-mistakes/vendor/_archive.scss` I modify `.list__item` to look like the following: 
 
-```css
+~~~ css
 .list__item {
   .page__meta {
     margin: 0 0 4px;
@@ -132,7 +136,7 @@ Although the header images are now showing, the spacing is too close for my liki
     margin-bottom: 2em;
   }
 }
-```
+~~~
 
 This gives me enough spacing between posts but you can adjust the em value to your liking. I think teaser images add a lot of visual interest to the home page. I size my teaser images to 1280 px by 375 px.
 

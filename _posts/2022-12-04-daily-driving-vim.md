@@ -35,7 +35,7 @@ Here are some useful commands I found on the way while figuring out how to use V
 
 Unlocking the full potential of Vim requires customizing it with a `.vimrc` file, which is usually located in the home directory. I start by customizing my `.vimrc` with the options below (note that this file is written in Vimscript, which uses `"` for comments), which should give some sensible defaults (change the number of spaces for the tabs to your liking).
 
-```vim
+~~~ vim
 " Vim Configuration File
 
 " General Behavior
@@ -99,7 +99,7 @@ set smartcase
 set hlsearch
 " While typing a search command, show where the pattern, as it was typed so far, matches
 set incsearch
-```
+~~~
 
 Vim can also be augmented by installing plugins. You'll need to make sure the Vim version you're using (check with `vim --version`) is later than 8.0 (on the Broad Institute's cluster I had to compile Vim myself... why is the Broad still using RHEL 7.0!?). Simply clone the GitHub repositories of the plugin you wish to install into `~/.vim/pack/plugins/start` (the `start` folder can be changed to any name you like, as you can group plugins into folders of your liking; I just put them all into `start`). Some top plugins I like to have include:
 
@@ -116,7 +116,7 @@ In addition, you can also spice up Vim by using color themes. I personally use [
 
 Here is my additional configuration for the above plugins (note that I use [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads); also the `+termguicolors` option on macOS requires a newer version of Vim than what it comes default with):
 
-```vim
+~~~ vim
 " Set colorscheme
 set t_Co=256
 colorscheme onehalfdark 
@@ -176,7 +176,7 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 " CoC Configuration
 " You should copy what is written in the example configuration on the documentation here:
 " https://github.com/neoclide/coc.nvim
-```
+~~~
 
 ## Vim as an R IDE
 
@@ -186,22 +186,22 @@ A lot of the computational work in biomedical research utilizes R, so having an 
 
 The documentation on GitHub is pretty thorough, though there are a couple of options that you may want to set in your `.vimrc`:
 
-```vim
+~~~ vim
 " Nvim-R Configuration
 " Enable commenting
 let R_enable_comment=1
 " Set <- shortcut to two _ presses instead of one
 let R_assign=2
-```
+~~~
 
 Also, with the `.vimrc` settings above, tabs will be four spaces instead of R's default two. To mitigate this we can create `~/.vim/ftplugin/r.vim` which will be autoloaded any time an R file is loaded with the following configuration:
 
-```vim
+~~~ vim
 " Set spacing for R files
 setlocal shiftwidth=2
 setlocal softtabstop=2
 setlocal tabstop=2
-```
+~~~
 
 I hope that someone may find this compilation of rambling and resources useful.
 

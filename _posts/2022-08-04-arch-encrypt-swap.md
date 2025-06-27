@@ -29,11 +29,11 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
 
 1. Boot into an Arch Linux install USB. Verify the system is using UEFI boot mode by checking the UEFI bitness. Establish a network connection with [`iwd`](https://wiki.archlinux.org/title/iwd) if using Wi-Fi and verify the system clock.
 
-    ```shell
+    ~~~ bash
     cat /sys/firmware/efi/fw_platform_size
     iwctl
     timedatectl
-    ```
+    ~~~
 
 2. Create a 1 GB EFI partition and a Linux filesystem partition (usually the rest of the disk space) for Linux filesystem.
     
@@ -44,44 +44,44 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     * In `gdisk`, create a new partition with `n` and follow the prompts. I make my first partition the EFI partition (press Enter to accept default first sector, then type `+1G`) and the second my filesystem partition (press Enter and accept all defaults).
     * In `gdisk`, use `ef00` to set the filesystem of the first partition to EFI. 
 
-    ```shell
+    ~~~ bash
     gdisk /dev/nvme0n1
-    ```
+    ~~~
 
 3. Create a FAT32 system on the EFI partition, e.g. `nvme0n1p1` or `sda1`.
 
-    ```shell
+    ~~~ bash
     mkfs.fat -F 32 /dev/nvme0n1p1
-    ```
+    ~~~
 
 4. Initialize encryption on the Linux filesystem partition. You'll be prompted to enter a password to encrypt your system twice.
 
-    ```shell
+    ~~~ bash
     cryptsetup -y -v luksFormat /dev/nvme0n1p2
     cryptsetup open /dev/nvme0n1p2 cryptroot
-    ```
+    ~~~
 
 5. Create a BTRFS file system on the newly encrypted Linux filesystem partition and mount it.
 
-    ```shell
+    ~~~ bash
     mkfs.btrfs /dev/mapper/cryptroot
     mount /dev/mapper/cryptroot /mnt
-    ```
+    ~~~
 
 6. Change into `/mnt` and create subvolumes for `root`, `home`, `snapshots`, `var/log`, and `swap`. The names of the subvolumes here are [recommended for use with `snapper`](https://wiki.archlinux.org/title/snapper#Suggested_filesystem_layout), a program that will help automate snapshots for us. I add an additional subvolume for our swap file since it needs to be on a non-snapshotted subvolume.
 
-    ```shell
+    ~~~ bash
     cd /mnt
     btrfs subvolume create @
     btrfs subvolume create @home
     btrfs subvolume create @snapshots
     btrfs subvolume create @var_log
     btrfs subvolume create @swap
-    ```
+    ~~~
 
 7. Unmount `cryptroot` and then remount subvolumes and boot partition. For BTRFS mount options, I use `noatime` (disables file writing access times to improve performance), `zstd` (file compression), and `space_cache=v2` (new implementation of a free space tree for BTRFS cache).
 
-    ```shell
+    ~~~ bash
     cd
     umount /mnt
     mount -o noatime,compress=zstd,space_cache=v2,subvol=@ /dev/mapper/cryptroot /mnt
@@ -91,26 +91,26 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     mount -o noatime,compress=zstd,space_cache=v2,subvol=@var_log /dev/mapper/cryptroot /mnt/var/log
     mount -o noatime,subvol=@swap /dev/mapper/cryptroot /mnt/swap
     mount /dev/nvme0n1p1 /mnt/boot
-    ```
+    ~~~
 
 8. Create a swap file and turn it on. My rule of thumb is 2 GB for VMs or 0.5 times the system RAM in GB; change the `size=` parameter as appropriate. If using hibernation, set the size equal to the memory of the computer.
 
-    ```shell
+    ~~~ bash
     cd /mnt/swap
     btrfs filesystem mkswapfile --size 4g --uuid clear ./swapfile
     swapon ./swapfile
-    ```
+    ~~~
 
 9. Install the necessary base packages on your system. I use the packages below. Be sure to replace `intel-ucode` with `amd-ucode` if using an AMD processor. 
 
-    ```shell
+    ~~~ bash
     cd
     pacstrap -K /mnt base base-devel linux linux-firmware intel-ucode zsh zsh-completions sudo vim git btrfs-progs dosfstools e2fsprogs exfat-utils ntfs-3g smartmontools networkmanager dialog man-db man-pages texinfo pacman-contrib
-    ```
+    ~~~
 
 10. Continue with the install guide by generating your `fstab`, `arch-chroot`ing into `/mnt`, and setting up time zone, system locale, hostname, networking, users, and sudo
 
-    ```shell
+    ~~~ bash
     genfstab -U /mnt >> /mnt/etc/fstab
     arch-chroot /mnt
 
@@ -141,49 +141,49 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
 
     # Uncomment wheel line using vim. Use EDITOR=nano if preferred.
     visudo
-    ```
+    ~~~
 
 11. For the boot manager, I use `grub` because there are some packages that play nicely with restoring snapshots from the GRUB interface that we will see later.
 
-    ```shell
+    ~~~ bash
     pacman -S grub efibootmgr
-    ```
+    ~~~
 
 12. Edit `/etc/mkinitcpio.conf`. Add `btrfs` to `MODULES` and add `encrypt` to `HOOKS`, as in the following example. If using hibernate, also add `resume` following `filesystems`.
 
-    ```
+    ~~~
     HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt filesystems fsck)
-    ```
+    ~~~
 
 13. Regenerate your `initramfs`.
 
-    ```shell
+    ~~~ bash
     mkinitcpio -P
-    ```
+    ~~~
 
 14. Generate your bootloader.
 
-    ```shell
+    ~~~ bash
     grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-    ```
+    ~~~
 
 15. Obtain the UUID of the partition that the system was installed on. You can see this with the `blkid` command (don't use `cryptroot`; use the UUID of e.g. `/dev/nvme0n1p2` or `/dev/sda2`). It should look something like `5f5b0b02-318c-4980-bcb5-793d44fe4387`.
 
 16. Edit `/etc/default/grub` and at the line beginning with `GRUB_CMDLINE_LINUX_DEFAULT`, insert at the end with a space after `quiet`. Replace the UUID with the one on your system partition.
 
-    ```
+    ~~~
     root=/dev/mapper/cryptroot cryptdevice=UUID=5f5b0b02-318c-4980-bcb5-793d44fe4387:cryptroot 
-    ```
+    ~~~
 
 17. Regenerate `grub.cfg`.
 
-    ```shell
+    ~~~ bash
     grub-mkconfig -o /boot/grub/grub.cfg
-    ```
+    ~~~
 
 18. Add or configure any additional software. For example, I make sure to enable the following services.
 
-    ```shell
+    ~~~ bash
     # Networking on reboot
     systemctl enable NetworkManager.service
 
@@ -192,86 +192,87 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
 
     # pacman cache cleaner
     systemctl enable paccache.timer
-    ```
+    ~~~
 
 19. Exit chroot, reboot the system, and remove the Arch Linux install USB. You should be prompted to enter a password for your encrypted partition before logging in! If not, something in the process didn't go quite right (e.g. UUID wasn't typed correctly). With the install USB, you can remount all the partitions and `arch-chroot` to fix this.
+
 20. We're now going to set up `snapper`.
 
-    ```shell
+    ~~~ bash
     sudo pacman -S snapper
-    ```
+    ~~~
 
 21. When we create a snapshot configuration with `snapper`, it will also create a subvolume and folder called `/.snapshots`, even though we created the `snapshots` subvolume mounted on `/.snapshots` earlier. To remedy this we will: 
     1. Unmount our `snapshots` subvolume mounted at `/.snapshots` and delete the `/.snapshots` folder. 
 
-        ```shell
+        ~~~ bash
         sudo umount /.snapshots
         sudo rm -r /.snapshots
-        ```
+        ~~~
     2. Create our `snapper` config and let `snapper` do its weird thing. 
     
-        ```shell
+        ~~~ bash
         sudo snapper -c root create-config /
-        ```
+        ~~~
 
     3. Confirm that `snapper` did its weird thing and delete the newly created subvolume and folder.
 
-        ```shell
+        ~~~ bash
         sudo btrfs subvolume list /
         sudo btrfs subvolume delete /.snapshots
-        ```
+        ~~~
 
     4. Recreate the folder and remount it to our `snapshots` subvolume.
 
-        ```shell
+        ~~~ bash
         sudo mkdir /.snapshots
         sudo mount -a
-        ```
+        ~~~
 
 22. Let's give read, write and execute access from our snapshots (so we can access them).
 
-    ```shell
+    ~~~ bash
     sudo chmod 750 /.snapshots
-    ```
+    ~~~
 
 23. Edit `snapper` config at `/etc/snapper/configs/root`, add ALLOW_USERS=”[your username here, replace the brackets too]” and change frequency to that [listed on the `snapper` wiki page](https://wiki.archlinux.org/title/snapper#Set_snapshot_limits). 
 24. Enable the `snapper` services. If on an SSD, enable TRIM.
 
-    ```shell
+    ~~~ bash
     sudo systemctl enable --now snapper-timeline.timer
     sudo systemctl enable --now snapper-cleanup.timer
     sudo systemctl enable fstrim.timer
-    ```
+    ~~~
 
 25. Home stretch! Next I'll install `yay`, an AUR helper. It helps us install and manage packages from the AUR. You can also use `paru` if you wish.
 
-    ```shell
+    ~~~ bash
     git clone https://aur.archlinux.org/yay
     cd yay
     makepkg -si PKGBUILD
-    ```
+    ~~~
 
 26. Install `snap-pac-grub` and `rsync`. `snap-pac-grub` takes a system snapshot after every single install with `pacman` (so we can revert if an upgrade breaks something) and then makes these snapshots accessible and bootable from GRUB. Since our boot partition is not being snapshotted (only root), I'll use `rsync` to copy the files of `/boot` during every Linux kernel upgrade. 
 
-    ```shell
+    ~~~ bash
     yay -S snap-pac-grub rsync
-    ```
+    ~~~
 
 27. Edit `/etc/mkinitcpio.conf` and add `grub-btrfs-overlayfs` to the end of `HOOKS`, and then regenerate your `initramfs`. We did something like this earlier. This step enables booting from our snapshots from GRUB.
 
-    ```shell
+    ~~~ bash
     sudo mkinitcpio -P
-    ```
+    ~~~
 
 28. Our BTRFS snapshots will not backup `/boot` as it is on a different partition. If an update to a newer kernel version causes instability, we will want to restore the older kernel image. Create the folder `/etc/pacman.d/hooks` and in it, create a first hook which will sync `/boot` before a kernel update.
 
-    ```shell
+    ~~~ bash
     sudo mkdir /etc/pacman.d/hooks
     cd /etc/pacman.d/hooks
     sudo vim 0-bootbackup-pretransaction.hook
-    ```
+    ~~~
 
-    ```
+    ~~~
     [Trigger]
     Operation = Upgrade
     Operation = Install
@@ -284,15 +285,15 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     Description = Backing up /boot before committing transaction...
     When = PreTransaction
     Exec = /usr/bin/rsync -a --delete /boot /.bootbackup/pretransaction
-    ```
+    ~~~
 
 29. Duplicate this hook and name it as `95-bootbackup-posttransaction.hook`, this time to copy the new kernel after updating.
 
-    ```shell
+    ~~~ bash
     sudo cp 0-bootbackup-pretransaction.hook /etc/pacman.d/hooks/95-bootbackup-posttransaction.hook
-    ```
+    ~~~
 
-    ```
+    ~~~
     [Trigger]
     Operation = Upgrade
     Operation = Install
@@ -305,13 +306,13 @@ The steps below assumes the system you're installing Arch Linux to uses UEFI (wh
     Description = Backing up /boot after committing transaction...
     When = PostTransaction
     Exec = /usr/bin/rsync -a --delete /boot /.bootbackup/posttransaction
-    ```
+    ~~~
 
 30. Reboot, and you're finished! Phew, that was a handful. But this establishes an excellent base system from which to work off of. You can install your favorite desktop environment/window manager and programs. I use KDE.
 
-    ```shell
+    ~~~ bash
     sudo pacman -S plasma-meta mesa sddm konsole xdg-user-dirs xdg-utils tlp reflector firefox dolphin ark kate okular elisa vlc gwenview gimp krita kcalc spectacle kcharselect ksystemlog noto-fonts noto-fonts-cjk noto-fonts-emoji fcitx5-mozc fcitx5-configtool bitwarden libreoffice-still hunspell hunspell-en_us bluez bluez-utils neofetch kdeconnect
-    ```
+    ~~~
 
 ## Resources
 
