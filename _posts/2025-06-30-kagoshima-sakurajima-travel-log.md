@@ -1,7 +1,7 @@
 ---
 title: "Two Weeks in Kyushu, Part 1: Kagoshima and Sakurajima"
 date: 2025-06-30
-last_modified_at: 2025-06-30
+last_modified_at: 2025-12-07
 tags:
   - Japan
   - Travel
@@ -29,6 +29,8 @@ gallery_sakurajima_2:
 ---
 
 I spent two weeks traveling the southernmost of the main Japanese islands, Kyushu, in March 2025. The region features beaches, active volcanoes, tropical islands, and hot springs that especially cater to lovers of good views and nature. In this portion I cover Kagoshima and Sakurajima.
+
+You can view a map which includes all the places I mention in this post [here](https://www.google.com/maps/d/edit?mid=1HTmZVqrUUHrHqJCeZXfoW0QdWnPTZ0M&usp=sharing).
 
 ## Day 1: Getting to Kyushu
 
