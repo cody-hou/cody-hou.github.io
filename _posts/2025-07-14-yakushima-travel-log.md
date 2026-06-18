@@ -1,7 +1,7 @@
 ---
 title: "Two Weeks in Kyushu, Part 2: Yakushima"
 date: 2025-07-14
-last_modified_at: 2025-07-14
+last_modified_at: 2026-06-18
 tags:
   - Japan
   - Travel
@@ -137,7 +137,7 @@ The last leg of the hike has the steepest elevation gain, particularly the small
 
 {% include figure image_path="/assets/images/posts/2025-07-14-yakushima-travel-log-6.jpg" alt="Taiko Iwa" caption="There's also a viewing platform that I didn't know about a little bit below this outcropping which can also be seen in Princess Mononoke." %}
 
-The whole trip to and back took me around 3.5-4 hours, including a quick lunch break, which was quicker than I was expecting. I would definitely have gone a slower pace had I started earlier in the morning.
+The whole trip to and back took me around 3.5-4 hours, including a quick lunch break, which was quicker than I was expecting. I would definitely have gone a slower pace had I started earlier in the morning. You can see my hike data for Shiratani Unsuikyo [here](https://yamap.com/activities/38227100).
 
 ### Inakahama Beach
 
@@ -241,7 +241,6 @@ Due to its hollow central core, it's difficult to determine an exact age estimat
 
 {% include video id="1N3vp74sdiObcV_lNAzFYC8ntgynVzZsE"  provider="google-drive" %}
 
-
 With the intensifying rain I didn't really feel like going further along the trail (which does eventually reach the summit of Mt. Miyanoura). Some hikers returning from that direction said that the paths to the nearby Takatsuka Hut were completely covered in snow, so there was no stopping to eat lunch either.
 
 Instead I took my time heading back and enjoyed the views of the ancient forest once again. Despite the weather, the rain accentuated the green in the moss and leaves, and it was still an enjoyable return hike. I was able to meet up with my hiking buddies near the end and get some commemorative photos. The entire hike with breaks took approximately 8 hours long. I later heard from the innkeepers that our expeditions were one of the first to reach the Jomon Sugi this year, as during the week before there was too much snow to safely access the area.
@@ -253,6 +252,8 @@ As I still had some daylight left in my hike, I stopped by the nearby Yakusugi M
 At this point it was only around 4:30 PM but I was pretty exhausted from the long hike. I snapped a cool pic before heading back to the _minshuku_.
 
 {% include figure image_path="/assets/images/posts/2025-07-14-yakushima-travel-log-24.jpg" alt="Bus Stop" caption="Picture taken from the Anbo Bridge (安房大橋)." %}
+
+You can see my hiking data [here](https://yamap.com/activities/38240088), although unfortunately the phone I was recording this on bugged out mid-way and so only half of the return hike is recorded.
 
 ## Day 5: Yakusugi Land and Waterfalls
 
@@ -274,7 +275,7 @@ Contrary to the popular Jomon Sugi hike, I was the only hiker around for many tr
 
 {% include figure image_path="/assets/images/posts/2025-07-14-yakushima-travel-log-28.jpg" alt="Root Path" caption="Here, the path takes a funky texture in the form of tree roots." %}
 
-Overall I feel like this is a much safer place for family members of all ages. As I was leaving the park I even saw groups of school children. Lucky them!
+Overall I feel like this is a much safer place for family members of all ages. As I was leaving the park I even saw groups of school children. Lucky them! You can check out my hiking data for Yakusugi Land [here](https://yamap.com/activities/38243134).
 
 Just a few minutes' drive further up the road is another large tree, the [Kigen Sugi (紀元杉)](https://www.town.yakushima.kagoshima.jp/en/sightseeing-spots/sightseeingmountains/kigen-sugi-cedar/), one of the oldest _yakusugi_ on Yakushima. _Kigen_ means "epoch," which is certainly fitting as its estimated to be about 3000 years old. 
 
@@ -363,6 +364,8 @@ Supposedly on another side of the summit, there's a rope that leads down to a sm
 By the time I returned to the parking lot, the sky and mist had completely cleared up. Realizing that the top of Mt. Mocchomu was now visible from below, I hurried back to Toroki Falls for a last-minute long exposure.
 
 {% include figure image_path="/assets/images/posts/2025-07-14-yakushima-travel-log-42.jpg" alt="Toroki Falls and Mt. Mocchomu" caption="I was at the top of the rocky outcrop on the left!" %}
+
+My hiking data for Mt. Mocchomu can be seen [here](https://yamap.com/activities/38251074).
 
 ## Day 7: Western Yakushima and Return to Kagoshima
 

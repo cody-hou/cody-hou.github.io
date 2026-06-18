@@ -106,8 +106,8 @@ analytics:
 author:
   name             : "Cody Hou"
   avatar           : "/assets/images/bio-photo.jpg"
-  bio              : "Blogging about my hobbies, travel, and tech"
-  location         : "Minneapolis, Minnesota"
+  bio              : "Random thoughts and memories from my hobbies and travels"
+  location         : "Minnesota, USA"
   email            :
   links:
     - label: "GitHub"
