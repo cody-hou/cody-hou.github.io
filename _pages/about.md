@@ -14,3 +14,6 @@ Things I'm currently into include:
 * 🖥️ Homelabbing with Proxmox VE
 * 🎮 Baldur's Gate 3, Factorio
 * 🎧️ Japanese fusion jazz (Casiopea, T-SQUARE)
+
+Any views expressed on this website are my own and do not reflect those of my employer.
+{: .notice--danger}
